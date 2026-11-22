@@ -23,8 +23,37 @@ Referrer-Policy = "strict-origin-when-cross-origin"
 Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
 # Machine-readable files: explicit UTF-8 types so ₹, quotes and dashes survive.
+# Markdown copies stay out of the search index (the HTML pages are canonical) but remain readable by agents.
 [[headers]]
 for = "/*.md"
+
+[headers.values]
+Content-Type = "text/markdown; charset=utf-8"
+X-Robots-Tag = "noindex"
+
+[[headers]]
+for = "/llms.txt"
+
+[headers.values]
+Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+for = "/llms-full.txt"
+
+[headers.values]
+Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+for = "/llms.json"
+
+[headers.values]
+Content-Type = "application/json; charset=utf-8"
+
+[[headers]]
+for = "/resume.json"
+
+[headers.values]
+Content-Type = "application/json; charset=utf-8"
 
 # Short URLs for the section pages.
 [[redirects]]
@@ -72,30 +101,13 @@ from = "/awards"
 to = "/credentials/"
 status = 301
 
+[[redirects]]
+from = "/faq"
+to = "/credentials/#quick-answers"
+status = 301
+
 # Crawlers and tools often guess /sitemap.xml; the real index is sitemap-index.xml.
 [[redirects]]
 from = "/sitemap.xml"
 to = "/sitemap-index.xml"
 status = 301
-
-[headers.values]
-Content-Type = "text/markdown; charset=utf-8"
-X-Robots-Tag = "noindex"
-
-[[headers]]
-for = "/llms.txt"
-
-[headers.values]
-Content-Type = "text/plain; charset=utf-8"
-
-[[headers]]
-for = "/llms-full.txt"
-
-[headers.values]
-Content-Type = "text/plain; charset=utf-8"
-
-[[headers]]
-for = "/llms.json"
-
-[headers.values]
-Content-Type = "application/json; charset=utf-8"

@@ -1,5 +1,5 @@
 ---
-import { PAGES } from '@/data/view-all'
+import { PAGE_LABELS, PAGES } from '@/data/view-all'
 
 interface Props {
   current: keyof typeof PAGES
@@ -8,13 +8,7 @@ interface Props {
 }
 
 const { current, section } = Astro.props
-const labels: Record<keyof typeof PAGES, string> = {
-  work: 'Work',
-  research: 'Research',
-  writing: 'Writing',
-  expertise: 'Expertise',
-  credentials: 'Credentials',
-}
+const labels = PAGE_LABELS
 ---
 <nav class="page-crumbs" aria-label="Section pages">
   <a href={`/#${section}`}><span aria-hidden="true">←</span> Back to the index</a>

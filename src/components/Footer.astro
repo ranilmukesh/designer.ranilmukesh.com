@@ -1,11 +1,16 @@
 ---
 import Icon from '@/components/ui/Icon.astro'
 import { cv } from '@/data/cv'
+import { AGENT_FILES } from '@/data/machine-readable'
 import { allSections, sectionLinks, site, text } from '@/data/site'
+import { PAGE_LABELS, PAGES } from '@/data/view-all'
 import { formatMonthYear } from '@/utils/date'
 import { profileHandle } from '@/utils/handle'
 
 const { name, email, url, beian, profiles, location } = cv.basics
+// Every full-list page, and every machine-readable file, one click from any page.
+const fullPages = (Object.keys(PAGES) as (keyof typeof PAGES)[]).map(key => ({ href: PAGES[key], label: PAGE_LABELS[key] }))
+const agentFiles = AGENT_FILES
 const year = new Date().getFullYear()
 const locationText = [location?.address, location?.region].filter(Boolean).join(', ')
 ---
@@ -63,6 +68,17 @@ const locationText = [location?.address, location?.region].filter(Boolean).join(
     <svg class="footer__watermark" viewBox="0 0 1200 190" aria-hidden="true" focusable="false" role="presentation">
       <text x="0" y="160" textLength="1200" lengthAdjust="spacingAndGlyphs">{name.toUpperCase()}</text>
     </svg>
+
+    <nav class="footer__machine mono" aria-label={text('footer.machineLabel')}>
+      <p>
+        <span class="footer__machine-label">{text('footer.pages')}</span>
+        {fullPages.map((page, i) => <>{i > 0 && <span aria-hidden="true"> · </span>}<a href={page.href}>{page.label}</a></>)}
+      </p>
+      <p>
+        <span class="footer__machine-label">{text('footer.agents')}</span>
+        {agentFiles.map((file, i) => <>{i > 0 && <span aria-hidden="true"> · </span>}<a href={file.href} title={file.title}>{file.label}</a></>)}
+      </p>
+    </nav>
 
     <div class="footer__legal">
       <p class="mono">© {site.footer.copyrightStart}{site.footer.copyrightStart !== year

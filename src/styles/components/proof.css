@@ -148,6 +148,29 @@
     white-space: nowrap;
   }
 
+  .credentials__answers > div {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+    gap: 0.4rem 2rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .credentials__answers dt {
+    font-weight: 600;
+  }
+
+  .credentials__answers dd {
+    color: var(--fg-2);
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 47.99rem) {
+    .credentials__answers > div {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .credentials__intro {
     max-width: 52ch;
     color: var(--fg-2);

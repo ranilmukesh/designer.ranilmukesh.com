@@ -2,6 +2,7 @@
 // Markdown copy of every page (llmstxt.org convention: /page/ → /page/index.md). Everything is built
 // from cv.json, so these files cannot drift from the HTML.
 import type { CV } from './schema'
+import { quickAnswers } from './quick-answers'
 
 export type MarkdownPage = 'home' | 'work' | 'research' | 'writing' | 'expertise' | 'credentials'
 
@@ -210,6 +211,10 @@ function credentialsSection({ cv }: Ctx): string {
   ].filter(Boolean).join('\n\n')
 }
 
+function answersSection({ cv }: Ctx): string {
+  return quickAnswers(cv).map(item => `**${item.question}**\n\n${item.answer}`).join('\n\n')
+}
+
 function footer(ctx: Ctx, page: MarkdownPage): string {
   const html = `${ctx.origin}${PAGE_PATHS[page]}`
   const email = ctx.cv.basics.email
@@ -224,6 +229,7 @@ export function pageMarkdown(cv: CV, origin: string, page: MarkdownPage): string
   const body: Record<MarkdownPage, () => string> = {
     home: () => [
       cv.basics.summary ?? '',
+      `## Quick answers\n\n${answersSection(ctx)}`,
       `## Proof\n\n${proofList(ctx)}`,
       `## Identity and profiles\n\n${identityList(ctx)}`,
       `## Experience\n\n${experienceSection(ctx)}`,
@@ -237,6 +243,7 @@ export function pageMarkdown(cv: CV, origin: string, page: MarkdownPage): string
     writing: () => writingSection(ctx),
     expertise: () => skillsSection(ctx),
     credentials: () => [
+      `## Quick answers\n\n${answersSection(ctx)}`,
       `## At a glance\n\n${proofList(ctx)}`,
       `## Research identifiers and profiles\n\n${identityList(ctx)}`,
       credentialsSection(ctx),
@@ -274,6 +281,8 @@ export function llmsTxt(cv: CV, origin: string): string {
   return `${header(ctx, 'home')}
 
 ${cv.basics.summary ?? ''}
+
+${answersSection(ctx)}
 
 Key facts (${asOf(ctx).replace(/\.$/, '')}):
 
@@ -371,5 +380,78 @@ export function llmsJson(cv: CV, origin: string): Record<string, unknown> {
     awards: cv.awards,
     certifications: cv.certificates.map(({ name, issuer, date, url }) => ({ name, issuer, date, url })),
     skills: cv.skills.map(({ name, category }) => ({ name, category })),
+  }
+}
+
+/** Machine-readable files, linked from the footer and the search panel. */
+export const AGENT_FILES = [
+  { href: '/llms.txt', label: 'llms.txt', title: 'Curated summary for language models (llmstxt.org)' },
+  { href: '/llms-full.txt', label: 'llms-full.txt', title: 'Every page in one plain-text file' },
+  { href: '/llms.json', label: 'llms.json', title: 'The same facts as structured JSON' },
+  { href: '/resume.json', label: 'resume.json', title: 'Résumé in the JSON Resume format' },
+  { href: '/index.md', label: 'index.md', title: 'This site as Markdown' },
+  { href: '/sitemap-index.xml', label: 'sitemap.xml', title: 'XML sitemap' },
+  { href: '/robots.txt', label: 'robots.txt', title: 'Crawler rules' },
+] as const
+
+/** /resume.json in the JSON Resume v1 format (jsonresume.org), built from the public site content only. */
+export function resumeJson(cv: CV, origin: string): Record<string, unknown> {
+  const groups = new Map<string, string[]>()
+  for (const skill of cv.skills) {
+    const key = skill.category?.trim() || 'Other'
+    groups.set(key, [
+      ...(groups.get(key) ?? []),
+      skill.name,
+    ])
+  }
+  return {
+    $schema: 'https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json',
+    basics: {
+      name: cv.basics.name,
+      label: cv.basics.label,
+      email: cv.basics.email,
+      url: cv.basics.url,
+      summary: cv.basics.summary,
+      profiles: cv.basics.profiles.map(({ network, username, url }) => ({ network, username, url })),
+    },
+    work: cv.work.map(job => ({
+      name: job.name,
+      position: job.position,
+      url: job.url,
+      summary: Array.isArray(job.summary)
+        ? job.summary.join(' ')
+        : job.summary,
+      highlights: [
+        ...(job.responsibilities ?? []),
+        ...(job.highlights ?? []),
+        ...(job.achievements ?? []),
+      ],
+    })),
+    education: cv.education.map(school => ({ institution: school.institution, area: school.area, studyType: school.studyType })),
+    awards: cv.awards.map(({ title, date, awarder, summary }) => ({ title, date, awarder, summary })),
+    certificates: cv.certificates.map(({ name, date, issuer, url }) => ({ name, date, issuer, url })),
+    publications: cv.publications.map(paper => ({
+      name: paper.name,
+      publisher: paper.publisher ?? (paper.status === 'preprint'
+        ? 'Pre-print'
+        : undefined),
+      releaseDate: paper.releaseDate,
+      url: paper.doi
+        ? `https://doi.org/${paper.doi}`
+        : paper.url,
+      summary: paper.summary,
+    })),
+    skills: [...groups].map(([name, keywords]) => ({ name, keywords })),
+    projects: cv.projects.map(project => ({
+      name: project.name,
+      description: project.description,
+      highlights: project.highlights ?? [],
+      url: project.url ?? project.github,
+    })),
+    meta: {
+      canonical: `${origin}/resume.json`,
+      version: 'v1.0.0',
+      lastModified: cv.recognition?.asOf,
+    },
   }
 }

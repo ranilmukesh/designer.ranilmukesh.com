@@ -1,8 +1,9 @@
 import type { IndexEntry } from './types'
 import { cv } from '@/data/cv'
+import { AGENT_FILES } from '@/data/machine-readable'
 import { overflowProjects } from '@/data/projects'
 import { section, sectionLinks, text } from '@/data/site'
-import { PAGES, VIEW_ALL_MODE } from '@/data/view-all'
+import { PAGE_LABELS, PAGES, VIEW_ALL_MODE } from '@/data/view-all'
 import { profileHandle } from '@/utils/handle'
 
 const { email, profiles, url } = cv.basics
@@ -19,6 +20,15 @@ const indexEntries: IndexEntry[] = [
     meta: `${link.index} · ${link.tagline}`,
     href: `#${link.id}`,
     search: `${link.label} ${link.tagline} ${link.id} plate ${link.index}`,
+  })),
+  ...(Object.keys(PAGES) as (keyof typeof PAGES)[]).map(key => ({
+    group: 'sections' as const,
+    label: PAGE_LABELS[key],
+    meta: 'Full page',
+    href: PAGES[key],
+    search: `${PAGE_LABELS[key]} ${key} full page all list ${key === 'credentials'
+      ? 'awards certifications proof verify faq quick answers'
+      : ''}`,
   })),
   ...(section('projects').enabled
     ? cv.projects
@@ -78,6 +88,13 @@ const indexEntries: IndexEntry[] = [
     href: profile.url,
     external: true,
     search: `${profile.network} ${profile.username} ${profile.url} profile link`,
+  })),
+  ...AGENT_FILES.map(file => ({
+    group: 'links' as const,
+    label: file.label,
+    meta: 'For agents',
+    href: file.href,
+    search: `${file.label} ${file.title} agents ai llm machine readable`,
   })),
 ]
 

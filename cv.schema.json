@@ -1244,6 +1244,13 @@
             "Thoughtful projects and good collaborators are always welcome."
           ]
         },
+        "credentials.answers": {
+          "type": "string",
+          "description": "Interface copy: credentials.answers. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Quick answers"
+          ]
+        },
         "credentials.awards": {
           "type": "string",
           "description": "Interface copy: credentials.awards. Keep any {placeholder} tokens intact.",
@@ -1503,6 +1510,13 @@
             "Ship the whole system, not just the surface."
           ]
         },
+        "footer.agents": {
+          "type": "string",
+          "description": "Interface copy: footer.agents. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "For agents:"
+          ]
+        },
         "footer.build": {
           "type": "string",
           "description": "Interface copy: footer.build. Keep any {placeholder} tokens intact.",
@@ -1543,6 +1557,20 @@
           "description": "Interface copy: footer.index. Keep any {placeholder} tokens intact.",
           "examples": [
             "Index"
+          ]
+        },
+        "footer.machineLabel": {
+          "type": "string",
+          "description": "Interface copy: footer.machineLabel. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Full pages and machine-readable files"
+          ]
+        },
+        "footer.pages": {
+          "type": "string",
+          "description": "Interface copy: footer.pages. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Full pages:"
           ]
         },
         "footer.rights": {

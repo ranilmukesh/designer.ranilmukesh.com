@@ -1,6 +1,7 @@
 // schema.org graph for every page. One Person entity, shared with ranilmukesh.com through a stable
 // @id, so search engines and AI crawlers see one identity, with its identifiers and proof attached.
 import type { CV } from './schema'
+import { quickAnswers } from './quick-answers'
 
 export type PageKind = 'home' | 'work' | 'research' | 'writing' | 'expertise' | 'credentials'
 
@@ -289,6 +290,23 @@ export function buildStructuredData(cv: CV, page: PageInput): Record<string, unk
         },
       },
       webPage,
+      ...(page.kind === 'credentials'
+        ? [
+            {
+              '@type': 'FAQPage',
+              '@id': `${page.canonical}#quick-answers`,
+              'url': `${page.canonical}#quick-answers`,
+              'about': {
+                '@id': personId(cv),
+              },
+              'mainEntity': quickAnswers(cv).map(item => ({
+                '@type': 'Question',
+                'name': item.question,
+                'acceptedAnswer': { '@type': 'Answer', 'text': item.answer },
+              })),
+            },
+          ]
+        : []),
     ],
   }) as Record<string, unknown>
 }

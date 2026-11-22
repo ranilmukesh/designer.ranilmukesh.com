@@ -18,3 +18,12 @@ export const PAGES = {
   expertise: '/expertise/',
   credentials: '/credentials/',
 } as const
+
+/** Display names for the full-list pages (footer, breadcrumbs). */
+export const PAGE_LABELS: Record<keyof typeof PAGES, string> = {
+  work: 'Work',
+  research: 'Research',
+  writing: 'Writing',
+  expertise: 'Expertise',
+  credentials: 'Credentials',
+}

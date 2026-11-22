@@ -144,6 +144,34 @@
         color: var(--ink-fg-3);
       }
 
+      .footer__machine {
+        display: grid;
+        gap: 0.45rem;
+        margin-bottom: 1.2rem;
+        color: var(--ink-fg-3);
+        font-size: var(--fs-label);
+        letter-spacing: 0.06em;
+        line-height: 1.7;
+      }
+
+      .footer__machine-label {
+        margin-right: 0.6rem;
+        color: var(--ink-fg-2, var(--ink-fg-3));
+      }
+
+      .footer__machine a {
+        color: var(--ink-fg);
+        text-decoration: underline;
+        text-decoration-color: color-mix(in oklab, var(--ink-fg) 35%, transparent);
+        text-underline-offset: 0.3em;
+      }
+
+      .footer__machine a:hover,
+      .footer__machine a:focus-visible {
+        color: var(--accent-lit);
+        text-decoration-color: currentColor;
+      }
+
       .footer__legal-links {
         display: flex;
         flex-wrap: wrap;
