@@ -1,0 +1,155 @@
+@layer components {
+  /* Proof band: verifiable claims, each one a link to the page that confirms it. */
+  .proof {
+    margin-top: clamp(2rem, min(4vw, 6svh), 3.5rem);
+  }
+
+  .proof__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.8rem 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--fg);
+  }
+
+  .proof__title {
+    margin-top: 0.5rem;
+    font-size: clamp(1.9rem, min(4vw, 7svh), 3.4rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+
+  .proof__checked {
+    color: var(--fg-3);
+    font-size: var(--fs-label);
+    letter-spacing: 0.1em;
+  }
+
+  .proof__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    border-left: 1px solid var(--line);
+  }
+
+  .proof__item {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .proof__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    height: 100%;
+    padding: clamp(0.9rem, min(1.6vw, 2.4svh), 1.4rem);
+    color: inherit;
+    text-decoration: none;
+    transition: background 0.25s var(--ease-out), color 0.25s var(--ease-out);
+  }
+
+  .proof__link:hover,
+  .proof__link:focus-visible {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  .proof__value {
+    font-size: clamp(1.5rem, min(2.6vw, 4.6svh), 2.5rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+  .proof__label {
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .proof__detail {
+    color: var(--fg-3);
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+
+  .proof__link:hover .proof__detail,
+  .proof__link:focus-visible .proof__detail {
+    color: inherit;
+    opacity: 0.8;
+  }
+
+  .proof__verify {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    color: var(--accent-text);
+    font-size: var(--fs-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .proof__link:hover .proof__verify,
+  .proof__link:focus-visible .proof__verify {
+    color: var(--accent-lit, var(--accent));
+  }
+
+  @media screen and (max-width: 63.99rem) {
+    .proof__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 26rem) {
+    .proof__detail {
+      display: none;
+    }
+  }
+
+  /* Credentials page lists */
+  .credentials__block {
+    margin-top: clamp(2.5rem, min(5vw, 7svh), 4rem);
+  }
+
+  .credentials__block-title {
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--fg);
+    font-size: clamp(1.6rem, min(3vw, 5svh), 2.6rem);
+    text-transform: uppercase;
+  }
+
+  .credentials__list > li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.3rem 1.5rem;
+    align-items: baseline;
+    padding-block: 0.9rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .credentials__name {
+    font-weight: 600;
+  }
+
+  .credentials__meta {
+    grid-column: 1;
+    color: var(--fg-3);
+    font-size: 0.9rem;
+  }
+
+  .credentials__link {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    color: var(--accent-text);
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .credentials__intro {
+    max-width: 52ch;
+    color: var(--fg-2);
+  }
+}

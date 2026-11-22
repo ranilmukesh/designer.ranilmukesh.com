@@ -16,4 +16,5 @@ export const PAGES = {
   research: '/research/',
   writing: '/writing/',
   expertise: '/expertise/',
+  credentials: '/credentials/',
 } as const

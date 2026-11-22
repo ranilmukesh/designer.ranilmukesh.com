@@ -4,6 +4,7 @@ import Arrow from '@/components/ui/Arrow.astro'
 import Icon from '@/components/ui/Icon.astro'
 import { cv } from '@/data/cv'
 import { section, site, text } from '@/data/site'
+import { profileHandle } from '@/utils/handle'
 
 const { email, phone, profiles, location, name } = cv.basics
 const locationText = [
@@ -116,7 +117,7 @@ const year = new Date().getFullYear()
                   <Icon name={profile.icon} width={20} height={20} />
                 </span>
                 <span class="contact__profile-name display">{profile.network}</span>
-                <span class="contact__profile-handle mono">@{profile.username}</span>
+                <span class="contact__profile-handle mono">{profileHandle(profile.username)}</span>
                 <Arrow class="contact__profile-arrow" size={24} />
               </a>
             </li>

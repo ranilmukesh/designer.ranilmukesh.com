@@ -57,7 +57,7 @@ const lastYear = education.some(item => !item.endDate)
                     <span aria-hidden="true"> / </span>
                     <span>{item.area}</span>
                   </p>
-                  <p class="mono school__dates">{formatDateRange(item.startDate, item.endDate, text('common.now'))}</p>
+                  {item.startDate && <p class="mono school__dates">{formatDateRange(item.startDate, item.endDate, text('common.now'))}</p>}
                   {item.score && <p class="school__meta"><span class="meta">{text('education.score')}</span> {item.score}</p>}
                   {item.courses && item.courses.length > 0 && <p class="school__meta"><span class="meta">{text('education.courses')}</span> {item.courses.join(' / ')}</p>}
                 </div>
@@ -109,7 +109,7 @@ const lastYear = education.some(item => !item.endDate)
                     </div>
                     <div>
                       <dt class="meta">{text('education.issued')}</dt>
-                      <dd>{certificate.date.slice(0, 7).replace('-', '.')}</dd>
+                      <dd>{certificate.date?.slice(0, 7).replace('-', '.') ?? '—'}</dd>
                     </div>
                   </dl>
                   {certificate.url && (

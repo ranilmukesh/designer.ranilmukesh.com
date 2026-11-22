@@ -152,6 +152,10 @@
     border-color: var(--on-accent);
   }
 
+  .stamp--accent {
+    color: var(--accent-text);
+  }
+
   .stamp--solid .status-dot {
     background: var(--on-accent);
     box-shadow: none;

@@ -88,6 +88,24 @@
         "icon": "simple-icons:leetcode",
         "username": "ranilmukesh",
         "url": "https://leetcode.com/u/ranilmukesh/"
+      },
+      {
+        "network": "ORCID",
+        "icon": "simple-icons:orcid",
+        "username": "0009-0008-0768-4106",
+        "url": "https://orcid.org/0009-0008-0768-4106"
+      },
+      {
+        "network": "Web of Science",
+        "icon": "simple-icons:clarivate",
+        "username": "QDO-4615-2026",
+        "url": "https://www.webofscience.com/wos/author/record/QDO-4615-2026"
+      },
+      {
+        "network": "Credly",
+        "icon": "simple-icons:credly",
+        "username": "Claude Certified Architect",
+        "url": "https://www.credly.com/badges/8af9e6f5-608d-4d23-879f-da09e50c5713"
       }
     ],
     "about": {
@@ -106,7 +124,7 @@
         },
         {
           "label": "Research",
-          "value": "11 papers & pre-prints"
+          "value": "13 papers & pre-prints"
         }
       ],
       "traits": [
@@ -128,13 +146,16 @@
           "text": "Co-Founder & CTO of PhobosQ and k22.ai"
         },
         {
+          "text": "AI leadership: sets the architecture and leads the engineering teams that ship it"
+        },
+        {
           "text": "SIRUS: an autonomous AI Data Scientist across 3,000+ enterprise tables"
         },
         {
           "text": "Yazhi: a foundational AI platform for 90 million Tamil speakers"
         },
         {
-          "text": "11 papers and pre-prints, from agent security to clinical AI"
+          "text": "13 papers and pre-prints, 3 peer-reviewed, including Scientific Reports and IEEE"
         },
         {
           "text": "Active contributor to the Agno agent framework"
@@ -174,11 +195,11 @@
     },
     "metrics": [
       {
-        "value": "16",
-        "label": "Selected projects"
+        "value": "20",
+        "label": "Projects"
       },
       {
-        "value": "11",
+        "value": "13",
         "label": "Papers & pre-prints"
       },
       {
@@ -574,6 +595,94 @@
   ],
   "publications": [
     {
+      "name": "Self-Defending 6G Networks Through AI-Driven Adaptive Decoy Generation at the Edge",
+      "releaseDate": "2026-05-26",
+      "url": "https://ranilmukesh.com/papers/6g-flatten.pdf",
+      "summary": "This paper proposes an adaptive security framework for 6G networks that moves beyond passive intrusion detection by generating and deploying realistic AI-driven decoys at the network edge. The system combines conditional GANs for context-aware decoy creation, PPO-based reinforcement learning for dynamic decoy placement and resource control, adversarial feedback from attacker interactions for continuous refinement, and federated synchronization across edge nodes to preserve privacy while improving collective defense.",
+      "tags": [
+        "6G Security",
+        "Edge AI",
+        "Conditional GAN",
+        "Reinforcement Learning",
+        "Federated Learning"
+      ],
+      "github": "https://github.com/PhobosQ-ai/Self-Defending-6G-Networks",
+      "publisher": "Scientific Reports (Nature Portfolio)",
+      "status": "published",
+      "doi": "10.1038/s41598-026-52368-z",
+      "issn": "2045-2322",
+      "authors": [
+        "Ranil Mukesh M J",
+        "Pandiya Rajan G",
+        "Prabhu Gopal",
+        "Malathy Sathyamoorthy",
+        "Aniket S. Nagane",
+        "Rakesh Keshava"
+      ],
+      "firstAuthor": true,
+      "featured": true
+    },
+    {
+      "name": "One Model Fits All? Rethinking Medical AI Chatbots with Specialized Retrieval",
+      "publisher": "6th International Conference on Artificial Intelligence, Robotics and Control (AIRC 2025), IEEE",
+      "releaseDate": "2025-05-07",
+      "url": "https://doi.org/10.1109/AIRC64931.2025.11077513",
+      "summary": "Asks whether a single general-purpose model is enough for medical chatbots, and compares it with specialized retrieval built on medical foundation models, dense and sparse retrieval, mixture-of-experts routing and vector databases.",
+      "tags": [
+        "Medical AI",
+        "Retrieval-Augmented Generation",
+        "Mixture of Experts",
+        "Vector Databases"
+      ],
+      "status": "published",
+      "doi": "10.1109/AIRC64931.2025.11077513",
+      "authors": [
+        "Ranil Mukesh MJ",
+        "Karthikeyan S",
+        "Meenalosini Vimal Cruz"
+      ],
+      "firstAuthor": true,
+      "featured": true
+    },
+    {
+      "name": "Advancing Structural Inspection through AR/VR: Drone-Assisted Flaw Detection in Civil Engineering",
+      "publisher": "IBC Journal, Vol. VIII (Indian Buildings Congress)",
+      "releaseDate": "2024-07-04",
+      "url": "https://www.linkedin.com/posts/karthikdecodes_innovation-ai-arvr-activity-7393697640678498304-SR0o/",
+      "summary": "Combines AI, AR/VR and drone imagery for structural health inspection of civil infrastructure. Presented at the 27th Annual Convention and National Seminar on “Challenges & Innovations in Urban Development”, New Delhi, 13–14 July 2024.",
+      "tags": [
+        "AR/VR",
+        "Drones",
+        "Computer Vision",
+        "Structural Inspection"
+      ],
+      "status": "published",
+      "authors": [
+        "Karthikeyan Saminathan",
+        "Ranil Mukesh M J",
+        "Akshay B R"
+      ],
+      "award": "S.P. Jaakhanwal Best Paper Award 2024–25",
+      "awardUrl": "https://www.linkedin.com/posts/karthikdecodes_innovation-ai-arvr-activity-7393697640678498304-SR0o/",
+      "featured": true
+    },
+    {
+      "name": "CareerCompass: A Privacy-Preserving Agentic Framework for Causal Employability Prediction and Generative Curriculum Synthesis",
+      "publisher": "IEEE ICCET 2026",
+      "releaseDate": "2026-04-01",
+      "url": "https://ranilmukesh.com/papers/CareerCompassIEEE-flatten.pdf",
+      "summary": "CareerCompass is a privacy-first employability prediction framework that allows multiple institutions to train a shared model without centralizing sensitive student records. It combines federated learning for decentralized prediction, propensity-score-based causal inference to test whether suggested interventions truly improve employability, and GraphRAG over a knowledge graph to generate personalized learning paths tailored to each student's current skills and career goals.",
+      "tags": [
+        "Federated Learning",
+        "Causal Inference",
+        "GraphRAG",
+        "Multi-Agent",
+        "Privacy"
+      ],
+      "status": "accepted",
+      "firstAuthor": true
+    },
+    {
       "name": "HQ-Mamba-PAC: A Generalizable Hybrid Quantum State-Space Framework for High-Fidelity Object Classification",
       "releaseDate": "2026-05-02",
       "url": "https://ranilmukesh.com/papers/hq%20mamba%20pac-flatten.pdf",
@@ -584,8 +693,7 @@
         "State-Space Models",
         "PAC-Bayes",
         "Object Classification"
-      ],
-      "featured": true
+      ]
     },
     {
       "name": "Mixture-of-Depths Meets Thresholded Differential Attention: Omni-PAIFT, a Universal Sink-Free Multimodal Foundation Transformer with Gradient-Orthogonal Fusion and Active Uncertainty Routing",
@@ -614,35 +722,6 @@
       ]
     },
     {
-      "name": "Self-Defending 6G Networks Through AI-Driven Adaptive Decoy Generation at the Edge",
-      "releaseDate": "2026-04-19",
-      "url": "https://ranilmukesh.com/papers/6g-flatten.pdf",
-      "summary": "This paper proposes an adaptive security framework for 6G networks that moves beyond passive intrusion detection by generating and deploying realistic AI-driven decoys at the network edge. The system combines conditional GANs for context-aware decoy creation, PPO-based reinforcement learning for dynamic decoy placement and resource control, adversarial feedback from attacker interactions for continuous refinement, and federated synchronization across edge nodes to preserve privacy while improving collective defense.",
-      "tags": [
-        "6G Security",
-        "Edge AI",
-        "Conditional GAN",
-        "Reinforcement Learning",
-        "Federated Learning"
-      ],
-      "github": "https://github.com/PhobosQ-ai/Self-Defending-6G-Networks"
-    },
-    {
-      "name": "CareerCompass: A Privacy-Preserving Agentic Framework for Causal Employability Prediction and Generative Curriculum Synthesis",
-      "publisher": "IEEE ICCET 2026",
-      "releaseDate": "2026-04-01",
-      "url": "https://ranilmukesh.com/papers/CareerCompassIEEE-flatten.pdf",
-      "summary": "CareerCompass is a privacy-first employability prediction framework that allows multiple institutions to train a shared model without centralizing sensitive student records. It combines federated learning for decentralized prediction, propensity-score-based causal inference to test whether suggested interventions truly improve employability, and GraphRAG over a knowledge graph to generate personalized learning paths tailored to each student's current skills and career goals.",
-      "tags": [
-        "Federated Learning",
-        "Causal Inference",
-        "GraphRAG",
-        "Multi-Agent",
-        "Privacy"
-      ],
-      "featured": true
-    },
-    {
       "name": "Signed and Sealed: Protocol-Level Isolation with Cryptographic Integrity (PLICI) for Secure LLM Agents",
       "url": "https://ranilmukesh.com/papers/PLICI-flatten.pdf",
       "summary": "PLICI is a deterministic security middleware for LLM agents that shifts defense away from fragile prompt-level heuristics toward verifiable protocol enforcement. It uses session-scoped Ed25519 signatures to verify data origin, schema-locked enclaves to isolate tool payloads before the agent reads them, and an NLI-based semantic filter to catch logic hijacking, sharply reducing attack success while keeping latency low enough for real-time agent systems.",
@@ -653,7 +732,7 @@
         "MCP",
         "Agentic AI"
       ],
-      "featured": true
+      "firstAuthor": true
     },
     {
       "name": "BrepHCC: Lightweight Cross-Modal B-Rep Point Fusion with Hierarchical Contrastive Clustering for Non-Categorical 3D Jewelry CAD Organization",
@@ -665,7 +744,8 @@
         "Point Clouds",
         "Clustering",
         "Jewelry Design"
-      ]
+      ],
+      "firstAuthor": true
     },
     {
       "name": "Cerebro-TabM: Contextual Evidential Retrieval & Ensembling with Bounded Rademacher Optimization for Clinical Stroke Prediction",
@@ -677,7 +757,8 @@
         "Tabular Learning",
         "Uncertainty Estimation",
         "PAC-Bayes"
-      ]
+      ],
+      "firstAuthor": true
     },
     {
       "name": "Cross-Attention with Squeeze-and-Excitation Layers for Tabular Data",
@@ -701,7 +782,8 @@
         "Diffusion Models",
         "Causal Inference",
         "Medical Imaging"
-      ]
+      ],
+      "firstAuthor": true
     },
     {
       "name": "HelixVantage: Context-Aware Medical Orchestration via Semantic IoT-Edge Fusion and Dynamic Neural Routing",
@@ -713,7 +795,8 @@
         "HL7 FHIR",
         "Dynamic Routing",
         "Medical Safety"
-      ]
+      ],
+      "firstAuthor": true
     }
   ],
   "articles": [
@@ -1085,5 +1168,219 @@
     "story.projects": "Companies ship systems.",
     "story.research": "Systems raise questions worth publishing.",
     "story.writing": "Some questions need the long form."
-  }
+  },
+  "identifiers": [
+    {
+      "name": "ORCID",
+      "value": "0009-0008-0768-4106",
+      "url": "https://orcid.org/0009-0008-0768-4106"
+    },
+    {
+      "name": "Web of Science ResearcherID",
+      "value": "QDO-4615-2026",
+      "url": "https://www.webofscience.com/wos/author/record/QDO-4615-2026"
+    }
+  ],
+  "awards": [
+    {
+      "title": "S.P. Jaakhanwal Best Paper Award 2024–25",
+      "date": "2025-09-14",
+      "awarder": "Indian Buildings Congress",
+      "summary": "For the co-authored paper “Advancing Structural Inspection through AR/VR: Drone-Assisted Flaw Detection in Civil Engineering”, IBC Journal 2024.",
+      "url": "https://www.linkedin.com/posts/karthikdecodes_innovation-ai-arvr-activity-7393697640678498304-SR0o/"
+    },
+    {
+      "title": "Second prize, 24-hour IEEE hackathon (₹1 lakh prize pool)",
+      "awarder": "IEEE hackathon for faculty, researchers and industry, Chennai",
+      "summary": "For GrandmaOS, a voice-first multi-agent tutor for rural students.",
+      "url": "https://github.com/ranilmukesh/Rural-GenerativeUi-TTS-Agent"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Claude Certified Architect",
+      "issuer": "Anthropic",
+      "date": "2026-09",
+      "url": "https://www.credly.com/badges/8af9e6f5-608d-4d23-879f-da09e50c5713",
+      "featured": true
+    },
+    {
+      "name": "IBM Machine Learning Specialization",
+      "issuer": "IBM via Coursera",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/MRD2UQCBTFS7",
+      "featured": true
+    },
+    {
+      "name": "IBM Data Science Specialization",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/specialization/certificate/NJT7B4DCTAUP",
+      "featured": true
+    },
+    {
+      "name": "Machine Learning Capstone",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/95TDWW4VU8PC"
+    },
+    {
+      "name": "Deep Learning and Reinforcement Learning",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/WQ639G36M7KW"
+    },
+    {
+      "name": "Supervised Machine Learning: Classification",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/74H495K5EPX2"
+    },
+    {
+      "name": "Supervised Machine Learning: Regression",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/963M8Q2BS8TM"
+    },
+    {
+      "name": "Unsupervised Machine Learning",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/U6Y5FA9NH563"
+    },
+    {
+      "name": "Exploratory Data Analysis for Machine Learning",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/SDQRBUXSEZ7X"
+    },
+    {
+      "name": "Machine Learning with Python",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/XX6XNRZ88AMY"
+    },
+    {
+      "name": "Data Visualization with Python",
+      "issuer": "IBM via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/9BWDNAHGG3E8"
+    },
+    {
+      "name": "Reinforcement Learning: Qwik Start",
+      "issuer": "Google Cloud via Coursera",
+      "date": "2023-09",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/3HTGHMRYWWEW"
+    },
+    {
+      "name": "Data Analysis with Python",
+      "issuer": "IBM via Coursera",
+      "date": "2023-08",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/SMTJQJ7MEVUH"
+    },
+    {
+      "name": "Databases and SQL for Data Science with Python",
+      "issuer": "IBM via Coursera",
+      "date": "2023-08",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/T8EUW8DTYSAB"
+    },
+    {
+      "name": "Applied Data Science Capstone",
+      "issuer": "IBM via Coursera",
+      "date": "2023-05",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/XTNJ49TARVUV"
+    },
+    {
+      "name": "Foundations of Cybersecurity",
+      "issuer": "Google via Coursera",
+      "date": "2023-05",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/MSHFEASH2XBZ"
+    },
+    {
+      "name": "Python for Data Science, AI & Development",
+      "issuer": "IBM via Coursera",
+      "date": "2023-04",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/75449GBC3ZTL"
+    },
+    {
+      "name": "Tools for Data Science",
+      "issuer": "IBM via Coursera",
+      "date": "2023-04",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/54YAXV233DUE"
+    },
+    {
+      "name": "What is Data Science?",
+      "issuer": "IBM via Coursera",
+      "date": "2023-04",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/YD4GF5Y422GU"
+    },
+    {
+      "name": "Sentiment Analysis with TensorFlow",
+      "issuer": "Coursera",
+      "url": "https://www.coursera.org/account/accomplishments/certificate/HFDPKJ4G7RP8"
+    }
+  ],
+  "recognition": {
+    "asOf": "2026-11-23",
+    "items": [
+      {
+        "value": "Scientific Reports",
+        "label": "First-author journal paper",
+        "detail": "Nature Portfolio · 2026 · self-defending 6G networks",
+        "url": "https://doi.org/10.1038/s41598-026-52368-z",
+        "short": "First author, Scientific Reports"
+      },
+      {
+        "value": "11",
+        "label": "Verified peer reviews",
+        "detail": "IEEE Journal of Biomedical and Health Informatics (Q1), on Web of Science",
+        "url": "https://www.webofscience.com/wos/author/record/QDO-4615-2026",
+        "short": "11 verified IEEE JBHI reviews"
+      },
+      {
+        "value": "Best Paper",
+        "label": "S.P. Jaakhanwal Award 2024–25",
+        "detail": "Indian Buildings Congress · co-authored IBC Journal paper",
+        "url": "https://www.linkedin.com/posts/karthikdecodes_innovation-ai-arvr-activity-7393697640678498304-SR0o/",
+        "short": "Best Paper Award 2024–25"
+      },
+      {
+        "value": "Claude Certified Architect",
+        "label": "Anthropic certification",
+        "detail": "September 2026 · verified on Credly",
+        "url": "https://www.credly.com/badges/8af9e6f5-608d-4d23-879f-da09e50c5713",
+        "short": "Claude Certified Architect"
+      },
+      {
+        "value": "IEEE",
+        "label": "First-author conference paper",
+        "detail": "AIRC 2025 · specialized retrieval for medical AI",
+        "url": "https://doi.org/10.1109/AIRC64931.2025.11077513"
+      },
+      {
+        "value": "1,613",
+        "label": "LeetCode problems solved",
+        "detail": "Global rank 6,372 · 1,000-day badge · annual badges 2024–2026",
+        "url": "https://leetcode.com/u/ranilmukesh/"
+      },
+      {
+        "value": "1,398",
+        "label": "GitHub contributions",
+        "detail": "In the last year",
+        "url": "https://github.com/ranilmukesh"
+      },
+      {
+        "value": "2nd prize",
+        "label": "24-hour IEEE hackathon",
+        "detail": "Chennai · ₹1 lakh pool · GrandmaOS",
+        "url": "https://github.com/ranilmukesh/Rural-GenerativeUi-TTS-Agent"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "KPR Institute of Engineering and Technology, Coimbatore",
+      "area": "Computer Science and Engineering (AI and ML)",
+      "studyType": "B.Tech"
+    }
+  ]
 }

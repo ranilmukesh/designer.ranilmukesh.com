@@ -14,6 +14,17 @@ export const allSections = cv.sections.filter(item => item.enabled).map((item, i
 }))
 export const sectionLinks = allSections.filter(item => item.id !== 'top')
 
+/** Sections that only exist on their own page, never in the homepage sequence. */
+const pageOnlySections: Record<string, Partial<{ label: string, title: string, kicker: string, tagline: string, index: string }>> = {
+  credentials: {
+    label: 'Credentials',
+    title: 'Credentials',
+    kicker: 'Awards, certifications, identifiers',
+    tagline: 'Proof',
+    index: 'C1',
+  },
+}
+
 export function section(id: string) {
   return allSections.find(item => item.id === id)
     ?? {
@@ -26,6 +37,7 @@ export function section(id: string) {
       enabled: false,
       nav: false,
       tone: 'paper' as const,
+      ...pageOnlySections[id],
       ...cv.sections.find(item => item.id === id),
     }
 }

@@ -2,6 +2,7 @@
 import type { cv } from '@/data/cv'
 import Icon from '@/components/ui/Icon.astro'
 import { text } from '@/data/site'
+import { toBibtex } from '@/utils/bibtex'
 import { formatMonthYear } from '@/utils/date'
 
 interface Props {
@@ -11,42 +12,78 @@ interface Props {
 
 const { paper, index } = Astro.props
 const pad = (value: number) => String(value).padStart(2, '0')
+const doiUrl = paper.doi
+  ? `https://doi.org/${paper.doi}`
+  : undefined
+// The title links to the DOI when there is one; otherwise to the PDF or announcement.
+const titleUrl = doiUrl ?? paper.url
+const isPdf = Boolean(paper.url && /\.pdf(?:$|[?#])/i.test(paper.url))
+const statusLabel = paper.status === 'accepted'
+  ? text('research.accepted')
+  : paper.status === 'preprint'
+    ? text('research.preprint')
+    : undefined
+const citable = paper.status !== 'preprint' && Boolean(paper.publisher)
 ---
 <li class="paper" data-scroll>
   <span class="paper__index display" aria-hidden="true">{pad(index + 1)}</span>
   <div class="paper__body">
     <div class="paper__meta">
       {paper.publisher && <span class="stamp stamp--solid">{paper.publisher}</span>}
-      {!paper.publisher && !paper.releaseDate && <span class="stamp">{text('research.preprint')}</span>}
+      {statusLabel && <span class="stamp">{statusLabel}</span>}
+      {paper.firstAuthor && <span class="stamp">{text('research.firstAuthor')}</span>}
+      {paper.award && <span class="stamp stamp--accent">{paper.award}</span>}
       {paper.releaseDate && <span class="mono paper__date">{formatMonthYear(paper.releaseDate)}</span>}
     </div>
     <h3 class="paper__title">
-      {paper.url
-        ? <a class="link-line" href={paper.url} target="_blank" rel="noopener noreferrer">{paper.name}</a>
+      {titleUrl
+        ? <a class="link-line" href={titleUrl} target="_blank" rel="noopener noreferrer">{paper.name}</a>
         : paper.name}
     </h3>
+    {paper.authors && paper.authors.length > 0 && (
+      <p class="paper__authors">{paper.authors.join(', ')}</p>
+    )}
     {paper.summary && <p class="paper__abstract">{paper.summary}</p>}
     {paper.tags && paper.tags.length > 0 && (
       <ul class="paper__tags" aria-label={text('common.highlights')}>
         {paper.tags.map(tag => <li class="mono">{tag}</li>)}
       </ul>
     )}
-    {(paper.url || paper.github) && (
-      <div class="paper__links">
-        {paper.url && (
-          <a class="btn btn--solid" href={paper.url} target="_blank" rel="noopener noreferrer" aria-label={text('research.pdfLabel').replace('{name}', paper.name)} data-cursor={text('cursor.open')}>
-            <Icon name="mdi:file-document-outline" width={15} height={15} aria-hidden="true" />
-            {text('research.pdf')}
-          </a>
-        )}
-        {paper.github && (
-          <a class="arrow-link" href={paper.github} target="_blank" rel="noopener noreferrer" aria-label={text('common.sourceLabel').replace('{name}', paper.name)}>
-            <Icon name="mdi:github" width={16} height={16} aria-hidden="true" />
-            <span>{text('research.code')}</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        )}
-      </div>
-    )}
+    <div class="paper__links">
+      {doiUrl && (
+        <a class="btn btn--solid" href={doiUrl} target="_blank" rel="noopener noreferrer" aria-label={`${text('research.doi')}: ${paper.name}`} data-cursor={text('cursor.open')}>
+          <Icon name="simple-icons:doi" width={15} height={15} aria-hidden="true" />
+          {text('research.doi')} {paper.doi}
+        </a>
+      )}
+      {paper.url && isPdf && (
+        <a class:list={['btn', !doiUrl && 'btn--solid']} href={paper.url} target="_blank" rel="noopener noreferrer" aria-label={text('research.pdfLabel').replace('{name}', paper.name)} data-cursor={text('cursor.open')}>
+          <Icon name="mdi:file-document-outline" width={15} height={15} aria-hidden="true" />
+          {text('research.pdf')}
+        </a>
+      )}
+      {(paper.awardUrl ?? (!isPdf && !doiUrl
+? paper.url
+: undefined)) && (
+        <a class="arrow-link" href={paper.awardUrl ?? paper.url} target="_blank" rel="noopener noreferrer">
+          <Icon name="mdi:trophy-outline" width={16} height={16} aria-hidden="true" />
+          <span>{text('research.awardPost')}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
+      {paper.github && (
+        <a class="arrow-link" href={paper.github} target="_blank" rel="noopener noreferrer" aria-label={text('common.sourceLabel').replace('{name}', paper.name)}>
+          <Icon name="mdi:github" width={16} height={16} aria-hidden="true" />
+          <span>{text('research.code')}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      )}
+      {citable && (
+        <details class="paper__cite">
+          <summary class="mono">{text('research.cite')}</summary>
+          <pre class="mono"><code>{toBibtex(paper)}</code></pre>
+        </details>
+      )}
+    </div>
   </div>
 </li>

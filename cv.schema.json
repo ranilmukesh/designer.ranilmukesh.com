@@ -1244,6 +1244,55 @@
             "Thoughtful projects and good collaborators are always welcome."
           ]
         },
+        "credentials.awards": {
+          "type": "string",
+          "description": "Interface copy: credentials.awards. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Awards"
+          ]
+        },
+        "credentials.certificates": {
+          "type": "string",
+          "description": "Interface copy: credentials.certificates. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Certifications"
+          ]
+        },
+        "credentials.education": {
+          "type": "string",
+          "description": "Interface copy: credentials.education. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Education"
+          ]
+        },
+        "credentials.identifiers": {
+          "type": "string",
+          "description": "Interface copy: credentials.identifiers. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Research identifiers"
+          ]
+        },
+        "credentials.intro": {
+          "type": "string",
+          "description": "Interface copy: credentials.intro. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Every claim on this site, with the public page that confirms it."
+          ]
+        },
+        "credentials.proof": {
+          "type": "string",
+          "description": "Interface copy: credentials.proof. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "At a glance"
+          ]
+        },
+        "credentials.title": {
+          "type": "string",
+          "description": "Interface copy: credentials.title. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Credentials"
+          ]
+        },
         "cursor.drag": {
           "type": "string",
           "description": "Interface copy: cursor.drag. Keep any {placeholder} tokens intact.",
@@ -1508,6 +1557,13 @@
           "description": "Interface copy: footer.type. Keep any {placeholder} tokens intact.",
           "examples": [
             "Type: Anton, Space Grotesk, Instrument Serif, JetBrains Mono."
+          ]
+        },
+        "footer.updated": {
+          "type": "string",
+          "description": "Interface copy: footer.updated. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Updated {date}"
           ]
         },
         "gallery.board": {
@@ -2217,6 +2273,55 @@
             "All {count} projects"
           ]
         },
+        "proof.all": {
+          "type": "string",
+          "description": "Interface copy: proof.all. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "All credentials"
+          ]
+        },
+        "proof.allNote": {
+          "type": "string",
+          "description": "Interface copy: proof.allNote. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Awards, certifications, identifiers"
+          ]
+        },
+        "proof.asOf": {
+          "type": "string",
+          "description": "Interface copy: proof.asOf. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Figures checked {date}"
+          ]
+        },
+        "proof.kicker": {
+          "type": "string",
+          "description": "Interface copy: proof.kicker. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Proof"
+          ]
+        },
+        "proof.title": {
+          "type": "string",
+          "description": "Interface copy: proof.title. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Checked, not claimed."
+          ]
+        },
+        "proof.verify": {
+          "type": "string",
+          "description": "Interface copy: proof.verify. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Verify"
+          ]
+        },
+        "research.accepted": {
+          "type": "string",
+          "description": "Interface copy: research.accepted. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Accepted"
+          ]
+        },
         "research.all": {
           "type": "string",
           "description": "Interface copy: research.all. Keep any {placeholder} tokens intact.",
@@ -2231,11 +2336,39 @@
             "All {count} papers"
           ]
         },
+        "research.awardPost": {
+          "type": "string",
+          "description": "Interface copy: research.awardPost. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Award post"
+          ]
+        },
+        "research.cite": {
+          "type": "string",
+          "description": "Interface copy: research.cite. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Cite · BibTeX"
+          ]
+        },
         "research.code": {
           "type": "string",
           "description": "Interface copy: research.code. Keep any {placeholder} tokens intact.",
           "examples": [
             "Code"
+          ]
+        },
+        "research.doi": {
+          "type": "string",
+          "description": "Interface copy: research.doi. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "DOI"
+          ]
+        },
+        "research.firstAuthor": {
+          "type": "string",
+          "description": "Interface copy: research.firstAuthor. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "First author"
           ]
         },
         "research.intro": {
@@ -2249,14 +2382,14 @@
           "type": "string",
           "description": "Interface copy: research.note. Keep any {placeholder} tokens intact.",
           "examples": [
-            "Three selected papers. Every paper opens as a PDF on the main site."
+            "Three peer-reviewed papers. Pre-prints are on the full list."
           ]
         },
         "research.notePage": {
           "type": "string",
           "description": "Interface copy: research.notePage. Keep any {placeholder} tokens intact.",
           "examples": [
-            "All eleven papers. Each opens as a PDF on ranilmukesh.com."
+            "Peer-reviewed work first, then pre-prints. DOIs open at the publisher; PDFs open on ranilmukesh.com."
           ]
         },
         "research.papers": {
@@ -3221,14 +3354,12 @@
         "required": [
           "institution",
           "area",
-          "studyType",
-          "startDate"
+          "studyType"
         ],
         "additionalProperties": false
       }
     },
     "awards": {
-      "default": [],
       "type": "array",
       "items": {
         "type": "object",
@@ -3245,11 +3376,24 @@
           },
           "summary": {
             "type": "string"
+          },
+          "url": {
+            "description": "Public evidence: announcement, certificate post or project page.",
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^https?:\\/\\/"
+              },
+              {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 0
+              }
+            ]
           }
         },
         "required": [
           "title",
-          "date",
           "awarder"
         ],
         "additionalProperties": false
@@ -3282,11 +3426,14 @@
                 "maxLength": 0
               }
             ]
+          },
+          "featured": {
+            "description": "Listed first on /credentials and named in structured data.",
+            "type": "boolean"
           }
         },
         "required": [
           "name",
-          "date",
           "issuer"
         ],
         "additionalProperties": false
@@ -3345,6 +3492,48 @@
           "featured": {
             "description": "Shown in full on the page (up to three); the rest live behind the archive link.",
             "type": "boolean"
+          },
+          "status": {
+            "default": "preprint",
+            "type": "string",
+            "enum": [
+              "published",
+              "accepted",
+              "preprint"
+            ]
+          },
+          "doi": {
+            "type": "string",
+            "pattern": "^10\\.\\d{4,9}\\/\\S+$"
+          },
+          "issn": {
+            "type": "string"
+          },
+          "authors": {
+            "description": "Author list in published order.",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "firstAuthor": {
+            "type": "boolean"
+          },
+          "award": {
+            "type": "string"
+          },
+          "awardUrl": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^https?:\\/\\/"
+              },
+              {
+                "type": "string",
+                "minLength": 0,
+                "maxLength": 0
+              }
+            ]
           }
         },
         "required": [
@@ -3623,6 +3812,84 @@
         }
       },
       "additionalProperties": false
+    },
+    "recognition": {
+      "description": "Verifiable proof points: the homepage band and /credentials.",
+      "type": "object",
+      "properties": {
+        "asOf": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{1,2}(?:-\\d{1,2})?$",
+          "description": "Date the figures were last checked; shown beside them."
+        },
+        "items": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1,
+                "description": "The headline figure or name, e.g. \"11\" or \"Scientific Reports\"."
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "detail": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^https?:\\/\\/",
+                "description": "Public page where a reader can verify the claim."
+              },
+              "short": {
+                "description": "A few words for the one-line proof strip under the hero.",
+                "type": "string"
+              }
+            },
+            "required": [
+              "value",
+              "label",
+              "url"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "asOf"
+      ],
+      "additionalProperties": false
+    },
+    "identifiers": {
+      "default": [],
+      "description": "Scholarly identifiers, emitted as schema.org PropertyValue.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "e.g. ORCID, Web of Science ResearcherID"
+          },
+          "value": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https?:\\/\\/"
+          }
+        },
+        "required": [
+          "name",
+          "value",
+          "url"
+        ],
+        "additionalProperties": false
+      }
     },
     "images": {
       "type": "object",

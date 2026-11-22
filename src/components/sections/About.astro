@@ -1,4 +1,5 @@
 ---
+import ProofBand from '@/components/proof/ProofBand.astro'
 import Section from '@/components/Section.astro'
 import { cv } from '@/data/cv'
 import { text } from '@/data/site'
@@ -6,17 +7,8 @@ import { text } from '@/data/site'
 const { about, summary } = cv.basics
 const personalInfo = about?.personalInfo ?? []
 const traits = about?.traits ?? []
-const highlights = [
-  ...(about?.highlights ?? []),
-  ...cv.awards.map(award => ({
-text: [
-award.title,
-award.awarder,
-award.date,
-award.summary,
-].filter(Boolean).join(' / '),
-})),
-]
+// Awards appear in the proof band below, with their evidence links.
+const highlights = about?.highlights ?? []
 const quote = about?.quote
 const languages = cv.languages ?? []
 const interests = cv.interests ?? []
@@ -56,6 +48,10 @@ const meta = [
         ))
       }
     </dl>
+  </div>
+
+  <div class="about__proof">
+    <ProofBand />
   </div>
 
   {

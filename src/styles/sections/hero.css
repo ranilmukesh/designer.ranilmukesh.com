@@ -189,6 +189,24 @@
   line-height: 1.65;
 }
 
+.hero__proof {
+  display: block;
+  max-width: 34ch;
+  margin-top: .7rem;
+  padding-left: .7rem;
+  border-left: 2px solid currentColor;
+  color: inherit;
+  font-size: .68rem;
+  letter-spacing: .04em;
+  line-height: 1.55;
+  text-decoration: none;
+}
+
+.hero__proof:hover,
+.hero__proof:focus-visible {
+  text-decoration: underline;
+}
+
 .hero__explore {
   display: flex;
   align-items: center;

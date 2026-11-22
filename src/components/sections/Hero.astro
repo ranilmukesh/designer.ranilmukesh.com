@@ -9,6 +9,8 @@ import { seededRandom } from '@/utils/seed'
 
 const { name, label, profiles } = cv.basics
 const hero = cv.hero
+// One line of verifiable proof under the description; the full list lives on /credentials/.
+const proofStrip = (cv.recognition?.items ?? []).map(item => item.short).filter(Boolean)
 const settings = section('top')
 const lines = hero.nameLines.length
   ? hero.nameLines
@@ -67,6 +69,7 @@ const canFollow = !hero.cta.href.startsWith('#') || hero.cta.href === '#main'
         <div class="hero__annotation" data-hero-note>
           <p class="hero__role">{hero.role || label}</p>
           <p class="hero__description">{hero.description}</p>
+          {proofStrip.length > 0 && <a class="hero__proof mono" href="/credentials/">{proofStrip.join(' · ')}</a>}
           {canFollow && <a class="hero__explore" href={asset(hero.cta.href)} data-magnetic><span>{hero.cta.label}</span><Arrow size={27} /></a>}
         </div>
         {hero.globe.enabled && <div class="hero__visual" data-hero-visual><PixelGlobe /></div>}

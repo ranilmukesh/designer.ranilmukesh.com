@@ -2,6 +2,8 @@
 import Icon from '@/components/ui/Icon.astro'
 import { cv } from '@/data/cv'
 import { allSections, sectionLinks, site, text } from '@/data/site'
+import { formatMonthYear } from '@/utils/date'
+import { profileHandle } from '@/utils/handle'
 
 const { name, email, url, beian, profiles, location } = cv.basics
 const year = new Date().getFullYear()
@@ -26,7 +28,7 @@ const locationText = [location?.address, location?.region].filter(Boolean).join(
               <a href={profile.url} target="_blank" rel="noopener noreferrer">
                 <Icon name={profile.icon} width={13} height={13} aria-hidden="true" />
                 <span>{profile.network}</span>
-                <span class="footer__handle">@{profile.username}</span>
+                <span class="footer__handle">{profileHandle(profile.username)}</span>
               </a>
             </li>
           ))}
@@ -66,6 +68,7 @@ const locationText = [location?.address, location?.region].filter(Boolean).join(
       <p class="mono">© {site.footer.copyrightStart}{site.footer.copyrightStart !== year
 ? `–${year}`
 : ''} {name} / {text('footer.rights')}</p>
+      {cv.recognition && <p class="mono footer__updated">{text('footer.updated').replace('{date}', formatMonthYear(cv.recognition.asOf))}</p>}
       <div class="footer__legal-links">
         {beian?.mint && (
           <a class="mono" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">

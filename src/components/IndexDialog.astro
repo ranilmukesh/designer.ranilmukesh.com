@@ -5,6 +5,7 @@ import IndexResults from '@/components/index/IndexResults.astro'
 import Icon from '@/components/ui/Icon.astro'
 import { cv } from '@/data/cv'
 import { section, sectionLinks, site, text } from '@/data/site'
+import { profileHandle } from '@/utils/handle'
 
 const { email, profiles, name, label, location } = cv.basics
 const locationText = [location?.city, location?.region, location?.countryCode].filter(Boolean).join(', ')
@@ -102,7 +103,7 @@ const locationText = [location?.city, location?.region, location?.countryCode].f
                     <a href={profile.url} target="_blank" rel="noopener noreferrer">
                       <Icon name={profile.icon} width={14} height={14} aria-hidden="true" />
                       <span>{profile.network}</span>
-                      <span class="index-dialog__handle">@{profile.username}</span>
+                      <span class="index-dialog__handle">{profileHandle(profile.username)}</span>
                     </a>
                   </li>
                 ))}

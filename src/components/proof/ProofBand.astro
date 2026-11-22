@@ -1,0 +1,51 @@
+---
+import ViewAll from '@/components/ui/ViewAll.astro'
+import { cv } from '@/data/cv'
+import { text } from '@/data/site'
+import { PAGES } from '@/data/view-all'
+import { formatMonthYear } from '@/utils/date'
+
+interface Props {
+  /** `home` links on to /credentials/; `page` is the full set on that page. */
+  variant?: 'home' | 'page'
+}
+
+const { variant = 'home' } = Astro.props
+const recognition = cv.recognition
+// The homepage shows the four strongest proofs in one row; /credentials/ shows them all.
+const all = recognition?.items ?? []
+const items = variant === 'home'
+  ? all.slice(0, 4)
+  : all
+const checked = recognition
+  ? text('proof.asOf').replace('{date}', formatMonthYear(recognition.asOf))
+  : ''
+---
+{items.length > 0 && (
+  <section class:list={['proof', variant === 'page' && 'proof--page']} aria-labelledby={`proof-title-${variant}`} data-scroll>
+    <header class="proof__head">
+      <div>
+        <p class="kicker">{text('proof.kicker')}</p>
+        <h3 id={`proof-title-${variant}`} class="proof__title display">{text('proof.title')}</h3>
+      </div>
+      <p class="proof__checked mono">{checked}</p>
+    </header>
+    <ul class="proof__grid">
+      {items.map(item => (
+        <li class="proof__item">
+          <a class="proof__link" href={item.url} target="_blank" rel="noopener noreferrer">
+            <span class="proof__value display">{item.value}</span>
+            <span class="proof__label">{item.label}</span>
+            {item.detail && <span class="proof__detail">{item.detail}</span>}
+            <span class="proof__verify mono">{text('proof.verify')} <span aria-hidden="true">↗</span></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    {variant === 'home' && <ViewAll mode="pages" href={PAGES.credentials} label={text('proof.all')} note={text('proof.allNote')} />}
+  </section>
+)}
+
+<style is:global>
+  @import "../../styles/components/proof.css";
+</style>

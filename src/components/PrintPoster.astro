@@ -1,6 +1,7 @@
 ---
 import { cv } from '@/data/cv'
 import { asset, section, text } from '@/data/site'
+import { profileHandle } from '@/utils/handle'
 
 const { name, label, summary, email, phone, url, profiles, location, image } = cv.basics
 const locationText = [location?.address, location?.region, location?.countryCode].filter(Boolean).join(', ')
@@ -57,7 +58,7 @@ const projects = section('projects').enabled
         {email && <p>{email}</p>}
         {phone && <p>{phone}</p>}
         {url && <p>{url.replace(/^https?:\/\//, '')}</p>}
-        {profiles.map(profile => <p>{profile.network} / @{profile.username}</p>)}
+        {profiles.map(profile => <p>{profile.network} / {profileHandle(profile.username)}</p>)}
       </div>
     </div>
 

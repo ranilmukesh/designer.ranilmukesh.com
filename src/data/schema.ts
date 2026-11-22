@@ -118,7 +118,7 @@ const educationSchema = z.strictObject({
   area: z.string(),
   studyType: z.string(),
   url: linkSchema,
-  startDate: dateSchema,
+  startDate: dateSchema.optional(),
   endDate: dateSchema.nullish(),
   score: z.string().optional(),
   courses: stringListSchema.optional(),
@@ -126,9 +126,23 @@ const educationSchema = z.strictObject({
 
 const certificateSchema = z.strictObject({
   name: z.string(),
-  date: dateSchema,
+  date: dateSchema.optional(),
   issuer: z.string(),
   url: linkSchema,
+  featured: z.boolean().optional().describe('Listed first on /credentials and named in structured data.'),
+})
+
+const recognitionSchema = z.strictObject({
+  asOf: dateSchema.describe('Date the figures were last checked; shown beside them.'),
+  items: z.array(
+    z.strictObject({
+      value: z.string().min(1).describe('The headline figure or name, e.g. "11" or "Scientific Reports".'),
+      label: z.string().min(1),
+      detail: z.string().optional(),
+      url: httpUrlSchema.describe('Public page where a reader can verify the claim.'),
+      short: z.string().optional().describe('A few words for the one-line proof strip under the hero.'),
+    }),
+  ).default([]),
 })
 
 const skillSchema = z.strictObject({
@@ -199,9 +213,10 @@ export const cvSchema = z.strictObject({
     .array(
       z.strictObject({
         title: z.string(),
-        date: dateSchema,
+        date: dateSchema.optional(),
         awarder: z.string(),
         summary: z.string().optional(),
+        url: linkSchema.describe('Public evidence: announcement, certificate post or project page.'),
       }),
     )
     .default([]),
@@ -217,6 +232,13 @@ export const cvSchema = z.strictObject({
         tags: stringListSchema.optional(),
         github: linkSchema,
         featured: z.boolean().optional().describe('Shown in full on the page (up to three); the rest live behind the archive link.'),
+        status: z.enum(['published', 'accepted', 'preprint']).default('preprint'),
+        doi: z.string().regex(/^10\.\d{4,9}\/\S+$/, 'A bare DOI such as 10.1038/s41598-026-52368-z').optional(),
+        issn: z.string().optional(),
+        authors: stringListSchema.optional().describe('Author list in published order.'),
+        firstAuthor: z.boolean().optional(),
+        award: z.string().optional(),
+        awardUrl: linkSchema,
       }),
     )
     .default([]),
@@ -264,6 +286,17 @@ export const cvSchema = z.strictObject({
     })
     .optional()
     .describe('Full archives hosted elsewhere, linked from the research and writing sections.'),
+  recognition: recognitionSchema.optional().describe('Verifiable proof points: the homepage band and /credentials.'),
+  identifiers: z
+    .array(
+      z.strictObject({
+        name: z.string().describe('e.g. ORCID, Web of Science ResearcherID'),
+        value: z.string(),
+        url: httpUrlSchema,
+      }),
+    )
+    .default([])
+    .describe('Scholarly identifiers, emitted as schema.org PropertyValue.'),
   images: z
     .strictObject({
       intro: z.string().optional(),
@@ -273,3 +306,6 @@ export const cvSchema = z.strictObject({
 })
 
 export type Skill = z.infer<typeof skillSchema>
+
+/** Parsed cv.json, after defaults are applied. */
+export type CV = z.infer<typeof cvSchema>

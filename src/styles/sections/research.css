@@ -112,6 +112,42 @@
     margin-top: 1.3rem;
   }
 
+  .paper__links:empty {
+    display: none;
+  }
+
+  .paper__authors {
+    margin-top: 0.6rem;
+    color: var(--fg-3);
+    font-size: 0.92rem;
+  }
+
+  .paper__cite {
+    flex-basis: 100%;
+  }
+
+  .paper__cite > summary {
+    width: fit-content;
+    cursor: pointer;
+    color: var(--fg-2);
+    font-size: var(--fs-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .paper__cite > pre {
+    max-width: 100%;
+    margin-top: 0.7rem;
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--fg-2);
+    font-size: 0.78rem;
+    line-height: 1.55;
+    white-space: pre;
+  }
+
   .research__all,
   .writing__all {
     display: flex;
@@ -158,5 +194,13 @@
     .paper__index {
       font-size: 3rem;
     }
+  }
+}
+
+@layer components {
+  /* Homepage keeps each paper short; authors and BibTeX live on /research/. */
+  .research:not(.research--page) > .papers .paper__authors,
+  .research:not(.research--page) > .papers .paper__cite {
+    display: none;
   }
 }

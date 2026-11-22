@@ -3,6 +3,7 @@ import { cv } from '@/data/cv'
 import { overflowProjects } from '@/data/projects'
 import { section, sectionLinks, text } from '@/data/site'
 import { PAGES, VIEW_ALL_MODE } from '@/data/view-all'
+import { profileHandle } from '@/utils/handle'
 
 const { email, profiles, url } = cv.basics
 const offHome = new Set(overflowProjects.map(({ index }) => index))
@@ -73,7 +74,7 @@ const indexEntries: IndexEntry[] = [
   ...profiles.map(profile => ({
     group: 'links' as const,
     label: profile.network,
-    meta: `@${profile.username}`,
+    meta: profileHandle(profile.username),
     href: profile.url,
     external: true,
     search: `${profile.network} ${profile.username} ${profile.url} profile link`,

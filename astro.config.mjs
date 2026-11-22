@@ -46,6 +46,8 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: () => cv.site?.seo?.noIndex !== true,
+      // Every page is built from cv.json, so its last content check is each page's lastmod.
+      lastmod: new Date(cv.recognition?.asOf ?? Date.now()),
     }),
   ],
   vite: {
