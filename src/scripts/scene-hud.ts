@@ -17,6 +17,16 @@ export function initSceneHud(): void {
     return
   initialized = true
 
+  // The fixed bottom bars would sit on top of the footer's last line, so they step aside there.
+  const footer = document.querySelector<HTMLElement>('footer.footer')
+  if (footer && 'IntersectionObserver' in window) {
+    const root = document.documentElement
+    new IntersectionObserver((entries) => {
+      for (const entry of entries)
+        root.classList.toggle('footer-in-view', entry.isIntersecting)
+    }, { rootMargin: '0px 0px -2px 0px' }).observe(footer)
+  }
+
   document.addEventListener('portfolio:section', (event) => {
     const detail = (event as CustomEvent<SectionDetail>).detail
     index.textContent = detail.index

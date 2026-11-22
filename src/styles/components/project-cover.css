@@ -1,0 +1,21 @@
+/* Inline project covers: every colour is a palette token, so covers follow theme and dark mode. */
+.project-cover {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+}
+
+.project-cover .c-bg { fill: var(--bg); }
+.project-cover .c-fg { fill: var(--fg); }
+.project-cover .c-accent { fill: var(--accent); }
+.project-cover .c-none { fill: none; }
+.project-cover .c-fg-line { stroke: var(--fg); }
+.project-cover .c-accent-line { stroke: var(--accent); fill: none; }
+.project-cover path.c-fg-line { fill: none; }
+.project-cover .c-display { font-family: var(--font-display); }
+.project-cover .c-mono { font-family: var(--font-mono); }
+
+.project-cover * {
+  transition: fill 240ms ease, stroke 240ms ease;
+}

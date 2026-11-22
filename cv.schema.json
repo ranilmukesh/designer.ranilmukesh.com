@@ -2175,6 +2175,13 @@
             "Index of works"
           ]
         },
+        "projects.more": {
+          "type": "string",
+          "description": "Interface copy: projects.more. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "More work"
+          ]
+        },
         "projects.navigation": {
           "type": "string",
           "description": "Interface copy: projects.navigation. Keep any {placeholder} tokens intact.",
@@ -2203,6 +2210,13 @@
             "All research"
           ]
         },
+        "research.allCount": {
+          "type": "string",
+          "description": "Interface copy: research.allCount. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "All {count} papers"
+          ]
+        },
         "research.code": {
           "type": "string",
           "description": "Interface copy: research.code. Keep any {placeholder} tokens intact.",
@@ -2221,7 +2235,7 @@
           "type": "string",
           "description": "Interface copy: research.note. Keep any {placeholder} tokens intact.",
           "examples": [
-            "Each paper opens as a PDF on the main site."
+            "Three selected papers. Every paper opens as a PDF on the main site."
           ]
         },
         "research.papers": {
@@ -2399,6 +2413,13 @@
             "{category} skills"
           ]
         },
+        "skills.cta": {
+          "type": "string",
+          "description": "Interface copy: skills.cta. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Full expertise"
+          ]
+        },
         "skills.entries": {
           "type": "string",
           "description": "Interface copy: skills.entries. Keep any {placeholder} tokens intact.",
@@ -2567,6 +2588,13 @@
             "Cobalt"
           ]
         },
+        "theme.clay": {
+          "type": "string",
+          "description": "Interface copy: theme.clay. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Clay"
+          ]
+        },
         "theme.cyber": {
           "type": "string",
           "description": "Interface copy: theme.cyber. Keep any {placeholder} tokens intact.",
@@ -2628,6 +2656,13 @@
           "description": "Interface copy: writing.all. Keep any {placeholder} tokens intact.",
           "examples": [
             "All articles"
+          ]
+        },
+        "writing.allCount": {
+          "type": "string",
+          "description": "Interface copy: writing.allCount. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "All {count} articles"
           ]
         },
         "writing.articles": {
@@ -2731,7 +2766,8 @@
             "orange",
             "cyber",
             "green",
-            "blue"
+            "blue",
+            "clay"
           ]
         },
         "location": {
@@ -3270,6 +3306,10 @@
                 "maxLength": 0
               }
             ]
+          },
+          "featured": {
+            "description": "Shown in full on the page (up to three); the rest live behind the archive link.",
+            "type": "boolean"
           }
         },
         "required": [
@@ -3384,6 +3424,10 @@
             "type": "string"
           },
           "isActive": {
+            "type": "boolean"
+          },
+          "featured": {
+            "description": "Shown in the pinned showcase (up to four); the rest appear in the compact work grid.",
             "type": "boolean"
           },
           "highlights": {

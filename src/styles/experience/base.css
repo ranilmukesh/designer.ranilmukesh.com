@@ -1,7 +1,7 @@
 /* The document is the stage. Section-local motion never changes its order. */
 :root {
   --header-height: 4.5rem;
-  --section-pad: clamp(4.5rem, 8vw, 8rem);
+  --section-pad: clamp(3rem, min(6vw, 10svh), 6.5rem);
   --gutter: clamp(1.25rem, 4.4vw, 4.5rem);
   --shell: 96rem;
 }
@@ -249,7 +249,7 @@ html[data-active-section="projects"] .scene-hud {
   align-items: start;
   gap: 1rem;
   padding-bottom: 1.7rem;
-  margin-bottom: clamp(3rem, 6vw, 6rem);
+  margin-bottom: clamp(2rem, min(4vw, 6svh), 4rem);
   border-bottom: 1px solid var(--fg);
 }
 
@@ -269,7 +269,7 @@ html[data-active-section="projects"] .scene-hud {
 
 .plate-head__title {
   margin-top: 1rem;
-  font-size: clamp(3.7rem, 9.5vw, 9rem);
+  font-size: clamp(3.2rem, min(8.5vw, 14svh), 8.5rem);
   line-height: 0.91;
   letter-spacing: -0.025em;
   overflow: clip;
@@ -295,7 +295,7 @@ html[data-active-section="projects"] .scene-hud {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: clamp(2rem, min(4vw, 5svh), 3.5rem);
   font-family: var(--font-mono);
   font-size: 0.53rem;
   line-height: 1.5;

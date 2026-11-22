@@ -56,7 +56,7 @@
 
     --gutter: clamp(1rem, 3.6vw, 3.5rem);
     --shell: 96rem;
-    --section-pad: clamp(4.5rem, 9vw, 9rem);
+    --section-pad: clamp(3rem, min(6vw, 10svh), 6.5rem);
     --grid-gap: clamp(1rem, 2vw, 2rem);
 
     --fs-mega: clamp(4rem, 15.5vw, 16rem);
@@ -117,6 +117,20 @@
     --on-accent: #121110;
     --accent-text: #121110;
     --accent-lit: #e8ff3d;
+  }
+
+  /* Clay: sand paper with a terracotta signal. Small accent text uses a darker clay for contrast. */
+  :root[data-theme="clay"] {
+    --bg: #d7ccae;
+    --bg-2: #cbbf9e;
+    --fg-2: #4d463a;
+    --fg-3: #575145;
+    --panel: #e4dbc2;
+    --panel-2: #d9ceb2;
+    --accent: #a86d4d;
+    --on-accent: #121110;
+    --accent-text: #6e4229;
+    --accent-lit: #e3a27c;
   }
 
   :root.dark {

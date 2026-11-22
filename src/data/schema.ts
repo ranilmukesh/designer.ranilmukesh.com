@@ -143,6 +143,7 @@ const projectSchema = z.strictObject({
   name: z.string(),
   description: z.string(),
   isActive: z.boolean().optional(),
+  featured: z.boolean().optional().describe('Shown in the pinned showcase (up to four); the rest appear in the compact work grid.'),
   highlights: stringListSchema.optional(),
   url: linkSchema,
   github: linkSchema,
@@ -215,6 +216,7 @@ export const cvSchema = z.strictObject({
         summary: z.string().optional(),
         tags: stringListSchema.optional(),
         github: linkSchema,
+        featured: z.boolean().optional().describe('Shown in full on the page (up to three); the rest live behind the archive link.'),
       }),
     )
     .default([]),

@@ -1,0 +1,25 @@
+---
+import type { ProjectRecord } from './types'
+import { coverMarkup } from '@/utils/cover'
+
+interface Props {
+  project: ProjectRecord
+  index: number
+  total: number
+  class?: string
+}
+
+const { project, index, total, class: className } = Astro.props
+---
+<svg
+  class:list={['project-cover', className]}
+  viewBox="0 0 1600 1000"
+  preserveAspectRatio="xMidYMid meet"
+  role="img"
+  aria-label={`${project.name} cover`}
+  set:html={coverMarkup(project, index, total)}
+/>
+
+<style is:global>
+  @import "../../styles/components/project-cover.css";
+</style>

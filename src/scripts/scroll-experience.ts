@@ -422,7 +422,7 @@ export function initScrollExperience(): void {
       ? initSmoothing(context)
       : undefined
     const projects = spacious && context.root.dataset.projectExhibitionEnabled !== 'false'
-      ? initProjectScroll(main, headerHeight)
+      ? initProjectScroll(main, headerHeight, context.lenis)
       : undefined
     context.projects = projects
     initReveals(main)

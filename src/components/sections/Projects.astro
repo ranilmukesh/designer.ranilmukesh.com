@@ -3,54 +3,41 @@ import ProjectCase from '@/components/ProjectCase.astro'
 import ProjectCard from '@/components/projects/ProjectCard.astro'
 import Section from '@/components/Section.astro'
 import Arrow from '@/components/ui/Arrow.astro'
+import Icon from '@/components/ui/Icon.astro'
 import { cv } from '@/data/cv'
 import { text } from '@/data/site'
 
 const projects = cv.projects
+const total = projects.length
+const indexed = projects.map((project, index) => ({ project, index }))
+// The pinned showcase holds at most four projects; everything else sits in a compact grid.
+const flagged = indexed.filter(({ project }) => project.featured)
+const featured = (flagged.length > 0
+? flagged
+: indexed).slice(0, 4)
+const featuredSet = new Set(featured.map(({ index }) => index))
+const more = indexed.filter(({ index }) => !featuredSet.has(index))
 const liveCount = projects.filter(project => project.isActive !== false).length
-const meta = `${String(projects.length).padStart(2, '0')} ${text('projects.cases')} · ${String(liveCount).padStart(2, '0')} ${text('common.live')}`
+const meta = `${String(total).padStart(2, '0')} ${text('projects.cases')} · ${String(liveCount).padStart(2, '0')} ${text('common.live')}`
+const pad = (value: number) => String(value).padStart(2, '0')
 ---
 <Section id="projects" meta={meta} className="projects-section">
-  <div class="project-index" data-scroll>
-    <div class="project-index__head">
-      <span class="kicker">{text('projects.index')}</span>
-      <span class="mono">{text('projects.select')} ↓</span>
-    </div>
-    <ol class="project-index__list">
-      {
-        projects.map((project, index) => (
-          <li>
-            <a href={`#project-${index + 1}`}>
-              <span class="project-index__num mono" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <span class="project-index__name">{project.name}</span>
-              <span class:list={['project-index__status mono', project.isActive === false && 'is-archived']}>
-                {project.isActive === false
-? text('common.archive')
-: text('common.live')}
-              </span>
-            </a>
-          </li>
-        ))
-      }
-    </ol>
-  </div>
-
   <div class="project-exhibition" data-project-exhibition>
     <div class="project-exhibition__pin" data-project-pin>
       <div class="project-exhibition__bar" aria-hidden="true">
         <span>{text('projects.selected')}</span>
-        <span class="project-exhibition__position"><span data-project-current>01</span><span class="project-exhibition__divider">/</span>{String(projects.length).padStart(2, '0')}</span>
+        <span class="project-exhibition__position"><span data-project-current>01</span><span class="project-exhibition__divider">/</span>{pad(featured.length)}</span>
         <span class="project-exhibition__hint">{text('projects.explore')} <Arrow direction="down" size={14} /></span>
       </div>
       <div class="project-exhibition__viewport">
         <div class="projects" data-project-track>
-          {projects.map((project, index) => <ProjectCard project={project} index={index} total={projects.length} />)}
+          {featured.map(({ project, index }) => <ProjectCard project={project} index={index} total={total} />)}
         </div>
       </div>
-      <nav class="project-exhibition__navigation" aria-label={text('projects.navigation')} style={`grid-template-columns: repeat(${Math.max(1, projects.length)}, minmax(0, 1fr))`}>
-        {projects.map((project, index) => (
-          <a href={`#project-${index + 1}`} data-project-step aria-label={`${String(index + 1).padStart(2, '0')} ${project.name}`}>
-            <span class="project-exhibition__step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}{' '}</span>
+      <nav class="project-exhibition__navigation" aria-label={text('projects.navigation')} style={`grid-template-columns: repeat(${Math.max(1, featured.length)}, minmax(0, 1fr))`}>
+        {featured.map(({ project, index }) => (
+          <a href={`#project-${index + 1}`} data-project-step aria-label={`${pad(index + 1)} ${project.name}`}>
+            <span class="project-exhibition__step-number" aria-hidden="true">{pad(index + 1)}{' '}</span>
             <span>{project.name}</span>
             <Arrow size={14} />
           </a>
@@ -60,9 +47,48 @@ const meta = `${String(projects.length).padStart(2, '0')} ${text('projects.cases
     </div>
   </div>
 
+  {more.length > 0 && (
+    <div class="work-grid" data-scroll>
+      <div class="work-grid__head">
+        <span class="kicker">{text('projects.more')}</span>
+        <span class="mono">{pad(more.length)} {text('projects.cases')}</span>
+      </div>
+      <ol class="work-grid__list">
+        {more.map(({ project, index }) => {
+          const href = project.url ?? project.github
+          const live = project.isActive !== false
+          return (
+            <li id={`project-${index + 1}`} class="work-tile" tabindex="-1">
+              <div class="work-tile__meta mono">
+                <span>{pad(index + 1)}</span>
+                <span class:list={['work-tile__status', !live && 'is-archived']}>{live
+? text('common.live')
+: text('common.archive')}</span>
+              </div>
+              <h3 class="work-tile__name">{project.name}</h3>
+              <p class="work-tile__description">{project.description}</p>
+              <div class="work-tile__actions">
+                <button class="work-tile__case mono" type="button" data-case-open data-case-index={index} aria-haspopup="dialog" aria-controls="projectCase" aria-label={text('common.caseLabel').replace('{name}', project.name)}>
+                  <Icon name="mdi:file-document-outline" width={14} height={14} aria-hidden="true" />
+                  {text('common.caseFile')}
+                </button>
+                {href && (
+                  <a class="work-tile__link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} (opens in a new tab)`}>
+                    <Icon name="mdi:arrow-top-right" width={16} height={16} aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+            </li>
+          )
+        })}
+      </ol>
+    </div>
+  )}
+
   <ProjectCase />
 </Section>
 
 <style is:global>
   @import "../../styles/sections/projects.css";
+  @import "../../styles/sections/work-grid.css";
 </style>

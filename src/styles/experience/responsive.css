@@ -39,7 +39,7 @@
 @media (max-width: 47.99rem) {
   :root {
     --header-height: 3.7rem;
-    --section-pad: 4.5rem;
+    --section-pad: 3rem;
   }
 
   .topbar__nav {

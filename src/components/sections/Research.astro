@@ -6,6 +6,11 @@ import { text } from '@/data/site'
 import { formatMonthYear } from '@/utils/date'
 
 const papers = cv.publications
+// Three papers in full keep the section near one screen; the archive link covers the rest.
+const flagged = papers.filter(paper => paper.featured)
+const shown = (flagged.length > 0
+? flagged
+: papers).slice(0, 3)
 const pad = (value: number) => String(value).padStart(2, '0')
 const venues = papers.filter(paper => paper.publisher).length
 const meta = [
@@ -25,7 +30,7 @@ const archive = cv.archive?.research
     </header>
 
     <ol class="papers">
-      {papers.map((paper, index) => (
+      {shown.map((paper, index) => (
         <li class="paper" data-scroll>
           <span class="paper__index display" aria-hidden="true">{pad(index + 1)}</span>
           <div class="paper__body">
@@ -69,7 +74,7 @@ const archive = cv.archive?.research
 
     {archive && (
       <a class="research__all display" href={archive} target="_blank" rel="noopener noreferrer" data-scroll>
-        <span>{text('research.all')}</span>
+        <span>{text('research.allCount').replace('{count}', String(papers.length))}</span>
         <span class="mono research__all-host">{archive.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
         <span aria-hidden="true">↗</span>
       </a>

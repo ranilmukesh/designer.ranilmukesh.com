@@ -307,3 +307,26 @@
     display: block;
   }
 }
+
+/* Bottom chrome steps aside once the footer is on screen, so nothing covers its last line. */
+.scene-hud,
+.blueprint-tab {
+  transition: opacity 220ms ease, transform 220ms ease, visibility 0s linear 0s;
+}
+
+.footer-in-view .scene-hud,
+.footer-in-view .blueprint-tab {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(0.75rem);
+  transition: opacity 220ms ease, transform 220ms ease, visibility 0s linear 220ms;
+}
+
+/* Very large displays (27–40 in, 4K): scale the whole rem system with the viewport so the layout
+   keeps the proportions it has on a 1920 px screen instead of floating small in the middle. */
+@media screen and (min-width: 2200px) {
+  html {
+    font-size: min(calc(100vw / 120), 32px);
+  }
+}

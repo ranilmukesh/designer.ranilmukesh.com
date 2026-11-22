@@ -5,6 +5,8 @@ import { text } from '@/data/site'
 import { formatMonthYear } from '@/utils/date'
 
 const articles = [...cv.articles].sort((a, b) => b.date.localeCompare(a.date))
+// The three latest articles; the archive link carries the rest.
+const shown = articles.slice(0, 3)
 const pad = (value: number) => String(value).padStart(2, '0')
 const meta = `${pad(articles.length)} ${text('writing.articles')}`
 const archive = cv.archive?.writing
@@ -20,7 +22,7 @@ const archive = cv.archive?.writing
     </header>
 
     <ol class="articles">
-      {articles.map((article, index) => (
+      {shown.map((article, index) => (
         <li class="article" data-scroll>
           <a class="article__link" href={article.url} target="_blank" rel="noopener noreferrer" data-cursor={text('writing.read')}>
             <span class="article__index mono" aria-hidden="true">{pad(index + 1)}</span>
@@ -37,7 +39,7 @@ const archive = cv.archive?.writing
 
     {archive && (
       <a class="writing__all display" href={archive} target="_blank" rel="noopener noreferrer" data-scroll>
-        <span>{text('writing.all')}</span>
+        <span>{text('writing.allCount').replace('{count}', String(articles.length))}</span>
         <span class="mono writing__all-host">{archive.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
         <span aria-hidden="true">↗</span>
       </a>

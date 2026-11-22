@@ -5,6 +5,7 @@ import Icon from '@/components/ui/Icon.astro'
 import { asset, text } from '@/data/site'
 import { stripLeadingEmoji } from '@/utils/text'
 import ProjectArtwork from './ProjectArtwork.astro'
+import ProjectCover from './ProjectCover.astro'
 import ProjectLinks from './ProjectLinks.astro'
 import StatusStamp from './StatusStamp.astro'
 
@@ -62,7 +63,13 @@ const titleSize = Math.min(7.5, 85 / Math.max(project.name.length, 8))
               <span class="project__corner project__corner--br" aria-hidden="true"></span>
             </a>
           )
-        : <div class="project__media project__media--empty" aria-hidden="true"><span class="mono">{text('common.noPreview')}</span></div>}
+        : (
+            <div class="project__media project__media--contain project__media--cover-art" data-scroll="media">
+              <ProjectCover project={project} index={index} total={total} />
+              <span class="project__corner project__corner--tl" aria-hidden="true"></span>
+              <span class="project__corner project__corner--br" aria-hidden="true"></span>
+            </div>
+          )}
       <span class="project__media-label mono" aria-hidden="true">{text('case.figure')} {number} / {project.name}</span>
     </div>
 
