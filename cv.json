@@ -384,8 +384,8 @@
       "featured": true
     },
     {
-      "name": "Paati OS",
-      "description": "A voice-first, multi-agent tutor for rural students. It talks in Tamil and English, builds its own interactive screens as it teaches, and covers SQL, logic and career planning through a grandmother persona, Thirukkural ethics and Tenali Raman puzzles.",
+      "name": "GrandmaOS",
+      "description": "A voice-first, multi-agent tutor that speaks like a Tamil paati (grandmother), teaching rural students SQL, logic and career planning in Tamil and English. It builds its own interactive screens as it teaches, through Thirukkural ethics and Tenali Raman puzzles.",
       "isActive": true,
       "highlights": [
         "Second prize, 24-hour IEEE hackathon in Chennai (₹1 lakh pool)",
