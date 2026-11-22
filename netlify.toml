@@ -3,7 +3,7 @@ command = "pnpm build"
 publish = "dist"
 
 [build.environment]
-NODE_VERSION = "24"
+NODE_VERSION = "26"
 PNPM_VERSION = "10.34.9"
 
 # Static export: no SPA fallback redirect.
