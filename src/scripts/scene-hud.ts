@@ -29,9 +29,13 @@ export function initSceneHud(): void {
 
   document.addEventListener('portfolio:section', (event) => {
     const detail = (event as CustomEvent<SectionDetail>).detail
-    index.textContent = detail.index
-    label.textContent = detail.label
-    count.textContent = `${detail.index} / ${hud.dataset.sectionTotal ?? '00'}`
+    // Fires every scroll frame: touch the text only when the section actually changes.
+    if (index.textContent !== detail.index) {
+      index.textContent = detail.index
+      count.textContent = `${detail.index} / ${hud.dataset.sectionTotal ?? '00'}`
+    }
+    if (label.textContent !== detail.label)
+      label.textContent = detail.label
     fill.style.transform = `scaleX(${detail.progress.toFixed(4)})`
   })
 }

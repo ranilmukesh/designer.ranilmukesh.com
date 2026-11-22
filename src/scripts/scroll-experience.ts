@@ -13,6 +13,9 @@ interface SectionGeometry {
   label: string
   top: number
   height: number
+  /** Elements that draw this section's progress rule; only they read --section-progress. */
+  rules: HTMLElement[]
+  progress: string
 }
 
 interface ScrollContext {
@@ -75,23 +78,27 @@ function updateSectionState(context: ScrollContext): void {
   for (const section of context.sections) {
     if (section.top <= marker)
       active = section
-    const progress = gsap.utils.clamp(0, 1, (marker - section.top) / Math.max(1, section.height))
-    section.element.style.setProperty('--section-progress', progress.toFixed(4))
+    // Written only to the two rule elements, and only when the value changes: a custom property
+    // set on a section (or on <html>) would restyle every element beneath it on every frame.
+    const value = gsap.utils.clamp(0, 1, (marker - section.top) / Math.max(1, section.height)).toFixed(3)
+    if (value !== section.progress) {
+      section.progress = value
+      for (const rule of section.rules)
+        rule.style.setProperty('--section-progress', value)
+    }
   }
 
   const progress = gsap.utils.clamp(0, 1, (marker - active.top) / Math.max(1, active.height))
   const pageProgress = gsap.utils.clamp(0, 1, window.scrollY / Math.max(1, context.root.scrollHeight - window.innerHeight))
-  context.root.dataset.activeSection = active.id
-  context.root.style.setProperty('--page-progress', String(pageProgress))
+  if (context.root.dataset.activeSection !== active.id)
+    context.root.dataset.activeSection = active.id
 
   syncNavigation(context, active.id)
 
   const bar = document.querySelector<HTMLElement>('.scroll-progress')
   if (bar)
-    bar.style.transform = `scaleX(${pageProgress})`
+    bar.style.transform = `scaleX(${pageProgress.toFixed(4)})`
 
-  const footer = document.querySelector<HTMLElement>('.footer')
-  context.root.classList.toggle('rail-hidden', Boolean(footer && footer.getBoundingClientRect().top < window.innerHeight * 0.85))
   document.dispatchEvent(new CustomEvent('portfolio:section', {
     detail: {
       id: active.id,
@@ -386,6 +393,10 @@ export function initScrollExperience(): void {
       label: element.dataset.sectionLabel ?? '',
       top: 0,
       height: 0,
+      rules: [
+        ...element.querySelectorAll<HTMLElement>('.plate-head, .plate__end-rule'),
+      ],
+      progress: '',
     })),
     links: [
       ...document.querySelectorAll<HTMLAnchorElement>('.topbar__nav a, [data-rail-link]'),
@@ -437,6 +448,15 @@ export function initScrollExperience(): void {
       refresh(context, true)
     }
   })
+
+  const footer = document.querySelector<HTMLElement>('.footer')
+  if (footer && 'IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        context.root.classList.toggle('rail-hidden', entry.isIntersecting || entry.boundingClientRect.top < 0)
+      }
+    }, { rootMargin: '0px 0px -15% 0px' }).observe(footer)
+  }
 
   measure(context)
   updateSectionState(context)

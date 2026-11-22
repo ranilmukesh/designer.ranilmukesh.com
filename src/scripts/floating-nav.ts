@@ -17,13 +17,20 @@ export function initFloatingNav(): void {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
   const tiles = dock.querySelectorAll('.topbar__brand, [data-dock-link], .topbar__appearance, .topbar__index-tile')
 
+  // Only the scrolled/top state depends on scroll position; the indicator moves when the
+  // active link changes (aria-current, observed below), on hover/focus and on resize.
+  const syncDockState = () => {
+    const state = window.scrollY > 32
+      ? 'scrolled'
+      : 'top'
+    if (dock.dataset.dockState !== state)
+      dock.dataset.dockState = state
+  }
   const paint = () => {
     frame = 0
     const active = links.find(link => link.getAttribute('aria-current') === 'location')
     const target = hovered ?? focused ?? active
-    dock.dataset.dockState = window.scrollY > 32
-      ? 'scrolled'
-      : 'top'
+    syncDockState()
     for (const link of links)
       link.toggleAttribute('data-dock-highlight', link === target)
     if (!target || nav.clientWidth === 0) {
@@ -60,14 +67,13 @@ export function initFloatingNav(): void {
   }
   const observer = new ResizeObserver(schedule)
   observer.observe(nav)
-  document.addEventListener('portfolio:section', schedule)
   const mutation = new MutationObserver(schedule)
   mutation.observe(nav, {
     subtree: true,
     attributes: true,
     attributeFilter: ['aria-current'],
   })
-  window.addEventListener('scroll', schedule, { passive: true })
+  window.addEventListener('scroll', syncDockState, { passive: true })
   void document.fonts.ready.then(schedule)
   const enter = () => {
     if (reduced.matches)

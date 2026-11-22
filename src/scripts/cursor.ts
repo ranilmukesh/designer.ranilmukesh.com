@@ -92,7 +92,8 @@ export function initCursor(): void {
 
     root.classList.toggle('is-active', Boolean(interactive || trigger))
     root.classList.toggle('has-label', Boolean(text))
-    label.textContent = text
+    if (label.textContent !== text)
+      label.textContent = text
 
     if (!frame)
       frame = requestAnimationFrame(render)
