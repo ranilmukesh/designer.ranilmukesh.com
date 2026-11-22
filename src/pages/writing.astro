@@ -1,0 +1,12 @@
+---
+import Footer from '@/components/Footer.astro'
+import Writing from '@/components/sections/Writing.astro'
+import { cv } from '@/data/cv'
+import Layout from '@/layouts/Layout.astro'
+
+const { name } = cv.basics
+---
+<Layout title={`Writing · ${name}`} path="/writing/" description="Every article by Ranil Mukesh MJ on agentic systems, inference and applied AI.">
+  <Writing variant="page" />
+  <Footer />
+</Layout>

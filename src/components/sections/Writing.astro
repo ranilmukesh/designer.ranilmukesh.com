@@ -1,18 +1,29 @@
 ---
 import Section from '@/components/Section.astro'
+import PageCrumbs from '@/components/ui/PageCrumbs.astro'
+import ViewAll from '@/components/ui/ViewAll.astro'
+import ArticleItem from '@/components/writing/ArticleItem.astro'
 import { cv } from '@/data/cv'
 import { text } from '@/data/site'
-import { formatMonthYear } from '@/utils/date'
+import { PAGES, VIEW_ALL_MODE } from '@/data/view-all'
 
+interface Props {
+  /** `home` shows the three latest articles; `page` lists every article at /writing/. */
+  variant?: 'home' | 'page'
+}
+
+const { variant = 'home' } = Astro.props
 const articles = [...cv.articles].sort((a, b) => b.date.localeCompare(a.date))
-// The three latest articles; the archive link carries the rest.
-const shown = articles.slice(0, 3)
+const shown = variant === 'page'
+  ? articles
+  : articles.slice(0, 3)
+const rest = articles.slice(shown.length)
 const pad = (value: number) => String(value).padStart(2, '0')
 const meta = `${pad(articles.length)} ${text('writing.articles')}`
-const archive = cv.archive?.writing
 ---
 <Section id="writing" meta={meta}>
   <div class="writing">
+    {variant === 'page' && <PageCrumbs current="writing" section="writing" />}
     <header class="writing__head" data-scroll>
       <div>
         <p class="kicker">{text('writing.intro')}</p>
@@ -22,31 +33,26 @@ const archive = cv.archive?.writing
     </header>
 
     <ol class="articles">
-      {shown.map((article, index) => (
-        <li class="article" data-scroll>
-          <a class="article__link" href={article.url} target="_blank" rel="noopener noreferrer" data-cursor={text('writing.read')}>
-            <span class="article__index mono" aria-hidden="true">{pad(index + 1)}</span>
-            <time class="article__date mono" datetime={article.date}>{formatMonthYear(article.date)}</time>
-            <span class="article__text">
-              <span class="article__title display">{article.title}</span>
-              {article.description && <span class="article__description">{article.description}</span>}
-            </span>
-            <span class="article__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      ))}
+      {shown.map(article => <ArticleItem article={article} index={articles.indexOf(article)} />)}
     </ol>
 
-    {archive && (
-      <a class="writing__all display" href={archive} target="_blank" rel="noopener noreferrer" data-scroll>
-        <span>{text('writing.allCount').replace('{count}', String(articles.length))}</span>
-        <span class="mono writing__all-host">{archive.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
-        <span aria-hidden="true">↗</span>
-      </a>
+    {variant === 'home' && rest.length > 0 && (
+      <ViewAll
+        mode={VIEW_ALL_MODE}
+        href={PAGES.writing}
+        label={text('writing.allCount').replace('{count}', String(articles.length))}
+        note={VIEW_ALL_MODE === 'pages'
+          ? text('viewAll.page')
+          : text('viewAll.more').replace('{count}', String(rest.length))}
+      >
+        <ol class="articles">
+          {rest.map(article => <ArticleItem article={article} index={articles.indexOf(article)} />)}
+        </ol>
+      </ViewAll>
     )}
   </div>
 </Section>
 
-<style>
+<style is:global>
   @import "../../styles/sections/writing.css";
 </style>

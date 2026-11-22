@@ -1,0 +1,39 @@
+---
+import type { ViewAllMode } from '@/data/view-all'
+import Arrow from '@/components/ui/Arrow.astro'
+
+interface Props {
+  mode: ViewAllMode
+  /** Page that holds the full list (used in `pages` mode). */
+  href: string
+  label: string
+  /** Short line beside the label, e.g. "11 papers · this site". */
+  note?: string
+}
+
+const { mode, href, label, note } = Astro.props
+---
+{mode === 'pages'
+  ? (
+      <a class="view-all__bar display" href={href} data-scroll>
+        <span>{label}</span>
+        {note && <span class="mono view-all__note">{note}</span>}
+        <Arrow direction="right" size={26} class="view-all__icon" />
+      </a>
+    )
+  : (
+      <details class="view-all" data-view-all>
+        <summary class="view-all__bar display" data-scroll>
+          <span>{label}</span>
+          {note && <span class="mono view-all__note">{note}</span>}
+          <Arrow direction="down" size={26} class="view-all__icon" />
+        </summary>
+        <div class="view-all__body">
+          <slot />
+        </div>
+      </details>
+    )}
+
+<style is:global>
+  @import "../../styles/components/view-all.css";
+</style>

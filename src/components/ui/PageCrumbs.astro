@@ -1,0 +1,30 @@
+---
+import { PAGES } from '@/data/view-all'
+
+interface Props {
+  current: keyof typeof PAGES
+  /** Homepage section this page expands, for the way back. */
+  section: string
+}
+
+const { current, section } = Astro.props
+const labels: Record<keyof typeof PAGES, string> = {
+  work: 'Work',
+  research: 'Research',
+  writing: 'Writing',
+  expertise: 'Expertise',
+}
+---
+<nav class="page-crumbs" aria-label="Section pages">
+  <a href={`/#${section}`}><span aria-hidden="true">←</span> Back to the index</a>
+  <span class="page-crumbs__siblings">
+    {(Object.keys(PAGES) as (keyof typeof PAGES)[]).map(key => (
+      <a
+        href={PAGES[key]}
+        aria-current={key === current
+? 'page'
+: undefined}
+      >{labels[key]}</a>
+    ))}
+  </span>
+</nav>

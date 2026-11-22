@@ -21,3 +21,39 @@ for = "/*"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "strict-origin-when-cross-origin"
 Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Short URLs for the section pages.
+[[redirects]]
+from = "/projects"
+to = "/work/"
+status = 301
+
+[[redirects]]
+from = "/papers"
+to = "/research/"
+status = 301
+
+[[redirects]]
+from = "/blog"
+to = "/writing/"
+status = 301
+
+[[redirects]]
+from = "/articles"
+to = "/writing/"
+status = 301
+
+[[redirects]]
+from = "/skills"
+to = "/expertise/"
+status = 301
+
+[[redirects]]
+from = "/exp"
+to = "/#experience"
+status = 301
+
+[[redirects]]
+from = "/experience"
+to = "/#experience"
+status = 301

@@ -1,0 +1,12 @@
+---
+import Footer from '@/components/Footer.astro'
+import Skills from '@/components/sections/Skills.astro'
+import { cv } from '@/data/cv'
+import Layout from '@/layouts/Layout.astro'
+
+const { name } = cv.basics
+---
+<Layout title={`Expertise · ${name}`} path="/expertise/" description="The full skills board of Ranil Mukesh MJ: agentic systems, LLM engineering, MLOps, orchestration and foundations.">
+  <Skills variant="page" />
+  <Footer />
+</Layout>

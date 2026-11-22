@@ -220,3 +220,70 @@
     overflow: hidden;
   }
 }
+
+/* /work page: every project as a tile with its inline cover. */
+@layer components {
+  .work-grid--page {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .work-grid--page .work-grid__list {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  }
+
+  .work-tile__cover {
+    display: block;
+    width: calc(100% + 2.2rem);
+    margin: -1rem -1.1rem 0.4rem;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--bg);
+    cursor: pointer;
+  }
+
+  .work-tile__cover .project-cover {
+    transition: transform 400ms var(--ease-out);
+  }
+
+  .work-tile__cover:hover .project-cover,
+  .work-tile__cover:focus-visible .project-cover {
+    transform: scale(1.03);
+  }
+
+  .work-grid--page .work-tile__description {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  /* "Show all" list inside the homepage grid continues the same grid. */
+  .work-grid .view-all__body .work-grid__list {
+    border-top: 1px solid var(--line);
+  }
+
+  .research--page .paper__abstract {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+  }
+
+  @media (max-width: 47.99rem) {
+    .work-grid--page .work-grid__list {
+      grid-template-columns: 1fr;
+    }
+
+    .work-grid--page .work-tile__description {
+      display: -webkit-box;
+    }
+
+    .work-tile__cover {
+      width: calc(100% + 1.4rem);
+      margin: -0.75rem -0.7rem 0.4rem;
+    }
+  }
+}

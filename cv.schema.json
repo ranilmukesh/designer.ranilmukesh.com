@@ -2154,6 +2154,13 @@
             "Design with intent. Build for people."
           ]
         },
+        "projects.allWork": {
+          "type": "string",
+          "description": "Interface copy: projects.allWork. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Every project"
+          ]
+        },
         "projects.cases": {
           "type": "string",
           "description": "Interface copy: projects.cases. Keep any {placeholder} tokens intact.",
@@ -2203,6 +2210,13 @@
             "Selected work"
           ]
         },
+        "projects.viewAll": {
+          "type": "string",
+          "description": "Interface copy: projects.viewAll. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "All {count} projects"
+          ]
+        },
         "research.all": {
           "type": "string",
           "description": "Interface copy: research.all. Keep any {placeholder} tokens intact.",
@@ -2236,6 +2250,13 @@
           "description": "Interface copy: research.note. Keep any {placeholder} tokens intact.",
           "examples": [
             "Three selected papers. Every paper opens as a PDF on the main site."
+          ]
+        },
+        "research.notePage": {
+          "type": "string",
+          "description": "Interface copy: research.notePage. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "All eleven papers. Each opens as a PDF on ranilmukesh.com."
           ]
         },
         "research.papers": {
@@ -2399,6 +2420,13 @@
             "Beginner"
           ]
         },
+        "skills.boardCta": {
+          "type": "string",
+          "description": "Interface copy: skills.boardCta. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Full skills board"
+          ]
+        },
         "skills.categories": {
           "type": "string",
           "description": "Interface copy: skills.categories. Keep any {placeholder} tokens intact.",
@@ -2411,13 +2439,6 @@
           "description": "Interface copy: skills.categoryStatus. Keep any {placeholder} tokens intact.",
           "examples": [
             "{category} skills"
-          ]
-        },
-        "skills.cta": {
-          "type": "string",
-          "description": "Interface copy: skills.cta. Keep any {placeholder} tokens intact.",
-          "examples": [
-            "Full expertise"
           ]
         },
         "skills.entries": {
@@ -2649,6 +2670,20 @@
           "description": "Interface copy: theme.red. Keep any {placeholder} tokens intact.",
           "examples": [
             "Signal"
+          ]
+        },
+        "viewAll.more": {
+          "type": "string",
+          "description": "Interface copy: viewAll.more. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "{count} more · show here"
+          ]
+        },
+        "viewAll.page": {
+          "type": "string",
+          "description": "Interface copy: viewAll.page. Keep any {placeholder} tokens intact.",
+          "examples": [
+            "Full list on this site"
           ]
         },
         "writing.all": {

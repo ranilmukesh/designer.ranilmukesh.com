@@ -1,39 +1,60 @@
 ---
 import Section from '@/components/Section.astro'
-import Arrow from '@/components/ui/Arrow.astro'
+import SkillsBoard from '@/components/skills/SkillsBoard.astro'
+import PageCrumbs from '@/components/ui/PageCrumbs.astro'
+import ViewAll from '@/components/ui/ViewAll.astro'
 import { cv } from '@/data/cv'
 import { text } from '@/data/site'
+import { PAGES, VIEW_ALL_MODE } from '@/data/view-all'
 import { groupSkillsByCategory } from '@/utils/skills'
 
-// A one-screen summary. The full expertise breakdown lives on the main site.
-const EXPERTISE_URL = 'https://ranilmukesh.com/expertise/'
+interface Props {
+  /** `home` is a one-screen summary; `page` is the full skills board at /expertise/. */
+  variant?: 'home' | 'page'
+}
+
+const { variant = 'home' } = Astro.props
 const groups = groupSkillsByCategory(cv.skills.map(skill => ({ ...skill, category: skill.category?.trim() || text('skills.other') })))
 const total = cv.skills.length
 const meta = `${String(total).padStart(2, '0')} ${text('skills.skills')} · ${String(groups.length).padStart(2, '0')} ${text('skills.groups')}`
 ---
 <Section id="skills" meta={meta}>
-  <div class="expertise-band">
-    <div class="expertise-band__intro" data-scroll>
-      <p class="kicker">{text('skills.intro')}</p>
-      <p class="expertise-band__statement display">{text('skills.statement')}</p>
-    </div>
+  {variant === 'page'
+    ? (
+        <>
+          <PageCrumbs current="expertise" section="skills" />
+          <SkillsBoard />
+        </>
+      )
+    : (
+        <div class="expertise-band">
+          <div class="expertise-band__intro" data-scroll>
+            <p class="kicker">{text('skills.intro')}</p>
+            <p class="expertise-band__statement display">{text('skills.statement')}</p>
+          </div>
 
-    <ol class="expertise-band__groups" data-scroll>
-      {groups.map((group, index) => (
-        <li class="expertise-band__group">
-          <span class="expertise-band__index mono" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-          <h3 class="expertise-band__name display">{group.category}</h3>
-          <p class="expertise-band__skills">{group.skills.slice(0, 4).map(skill => skill.name).join(' · ')}</p>
-        </li>
-      ))}
-    </ol>
+          <ol class="expertise-band__groups" data-scroll>
+            {groups.map((group, index) => (
+              <li class="expertise-band__group">
+                <span class="expertise-band__index mono" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <h3 class="expertise-band__name display">{group.category}</h3>
+                <p class="expertise-band__skills">{group.skills.slice(0, 4).map(skill => skill.name).join(' · ')}</p>
+              </li>
+            ))}
+          </ol>
 
-    <a class="expertise-band__cta display" href={EXPERTISE_URL} target="_blank" rel="noopener noreferrer" data-scroll data-cursor={text('cursor.open')}>
-      <span>{text('skills.cta')}</span>
-      <span class="mono expertise-band__host">ranilmukesh.com/expertise</span>
-      <Arrow size={28} />
-    </a>
-  </div>
+          <ViewAll
+            mode={VIEW_ALL_MODE}
+            href={PAGES.expertise}
+            label={text('skills.boardCta')}
+            note={VIEW_ALL_MODE === 'pages'
+              ? `${total} ${text('skills.skills').toLowerCase()} · ${text('viewAll.page').toLowerCase()}`
+              : `${total} ${text('skills.skills').toLowerCase()} · show here`}
+          >
+            <SkillsBoard intro={false} />
+          </ViewAll>
+        </div>
+      )}
 </Section>
 
 <style>

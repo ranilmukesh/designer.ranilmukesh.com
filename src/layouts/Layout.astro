@@ -26,9 +26,13 @@ import '../styles/story-motion.css'
 
 interface Props {
   title: string
+  /** Section pages (/work/, /research/, …) pass their path; the homepage omits it. */
+  path?: string
+  description?: string
 }
 
-const { title } = Astro.props
+const { title, path, description: pageDescription } = Astro.props
+const subpage = Boolean(path)
 const { name, label, summary, email, phone, url, location, theme, profiles } = cv.basics
 const locationText = [location?.city, location?.region].filter(Boolean).join(' · ')
 const contactLine = [
@@ -40,9 +44,11 @@ const contactLine = [
   .filter(Boolean)
   .join(' · ')
 
-const canonical = new URL(import.meta.env.BASE_URL, Astro.site ?? site.url).href
-const pageTitle = site.seo.title || title
-const description = site.seo.description || summary || `${name} - ${label}`
+const canonical = new URL(path ?? import.meta.env.BASE_URL, Astro.site ?? site.url).href
+const pageTitle = subpage
+  ? title
+  : site.seo.title || title
+const description = pageDescription || site.seo.description || summary || `${name} - ${label}`
 const ogImage = new URL(asset(site.seo.image), Astro.site ?? site.url).href
 
 const jsonLd = JSON.stringify({
@@ -128,7 +134,7 @@ const jsonLd = JSON.stringify({
         themes: THEMES,
         darkKey: DARK_STORAGE_KEY,
         paletteKey: PALETTE_STORAGE_KEY,
-        loaderEnabled: site.loader.enabled,
+        loaderEnabled: site.loader.enabled && !subpage,
         loaderMaxWait: site.loader.maxWait,
       }}
     >
@@ -189,7 +195,7 @@ const jsonLd = JSON.stringify({
   </head>
   <body>
     <a class="skip-link" href="#main">{text('site.skip')}</a>
-    {site.loader.enabled && <SiteLoader />}
+    {site.loader.enabled && !subpage && <SiteLoader />}
 
     <Stage />
     <TopBar />
@@ -206,7 +212,9 @@ const jsonLd = JSON.stringify({
     {site.features.print && <PrintPoster />}
 
     <main id="main" tabindex="-1">
-      {!allSections.some(item => item.id === 'top') && <h1 class="sr-only">{name} — {label}</h1>}
+      {subpage
+        ? <h1 class="sr-only">{title}</h1>
+        : !allSections.some(item => item.id === 'top') && <h1 class="sr-only">{name} — {label}</h1>}
       <slot />
     </main>
 
@@ -216,6 +224,42 @@ const jsonLd = JSON.stringify({
     {site.features.commandPalette && <IndexDialog />}
     <Lightbox />
     {site.features.cursor && <Cursor />}
+
+    {subpage && (
+      <script is:inline>
+        // Section pages share the homepage chrome; links to homepage sections go back to the homepage.
+        for (const anchor of document.querySelectorAll('a[href^="#"]')) {
+          const id = decodeURIComponent(anchor.getAttribute('href').slice(1))
+          if (id && id !== 'main' && !document.getElementById(id))
+            anchor.setAttribute('href', `/#${id}`)
+        }
+      </script>
+    )}
+
+    <script is:inline>
+      // "Show all" disclosures: open one when a link or the URL points inside it, and let the
+      // scroll engine re-measure the page whenever one opens or closes.
+      ;(() => {
+        const openFor = (hash) => {
+          const id = hash && decodeURIComponent(hash.slice(1))
+          const target = id && document.getElementById(id)
+          const box = target && target.closest('details[data-view-all]:not([open])')
+          if (box)
+            box.open = true
+        }
+        openFor(location.hash)
+        document.addEventListener('click', (event) => {
+          const anchor = event.target instanceof Element && event.target.closest('a[href^="#"]')
+          if (anchor)
+            openFor(anchor.hash)
+        }, true)
+        window.addEventListener('hashchange', () => openFor(location.hash))
+        document.addEventListener('toggle', (event) => {
+          if (event.target instanceof HTMLDetailsElement && event.target.matches('[data-view-all]'))
+            requestAnimationFrame(() => window.dispatchEvent(new Event('resize')))
+        }, true)
+      })()
+    </script>
 
     <script>
       import { initMotion } from '@/scripts/motion'

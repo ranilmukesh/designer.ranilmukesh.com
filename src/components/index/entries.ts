@@ -1,8 +1,11 @@
 import type { IndexEntry } from './types'
 import { cv } from '@/data/cv'
+import { overflowProjects } from '@/data/projects'
 import { section, sectionLinks, text } from '@/data/site'
+import { PAGES, VIEW_ALL_MODE } from '@/data/view-all'
 
 const { email, profiles, url } = cv.basics
+const offHome = new Set(overflowProjects.map(({ index }) => index))
 
 /**
  * Flat, serialisable search dataset. `command-search.ts` renders it grouped by
@@ -22,7 +25,10 @@ const indexEntries: IndexEntry[] = [
     group: 'cases' as const,
     label: project.name,
     meta: `${text('common.case')} ${String(projectIndex + 1).padStart(2, '0')}`,
-    href: `#project-${projectIndex + 1}`,
+    // Projects that are not on the homepage in `pages` mode live on the /work page.
+    href: VIEW_ALL_MODE === 'pages' && offHome.has(projectIndex)
+      ? `${PAGES.work}#project-${projectIndex + 1}`
+      : `#project-${projectIndex + 1}`,
     search: `${project.name} ${project.description} case file project ${project.isActive === false
       ? 'archived'
       : 'active'}`,

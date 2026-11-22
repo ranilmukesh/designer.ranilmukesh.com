@@ -63,37 +63,6 @@
     line-height: 1.45;
   }
 
-  .expertise-band__cta {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.4rem 1.2rem;
-    padding: clamp(1.1rem, 2.4vw, 1.8rem) clamp(1rem, 2.4vw, 2rem);
-    background: var(--fg);
-    color: var(--bg);
-    font-size: clamp(1.8rem, 4.5vw, 4rem);
-    line-height: 1;
-    text-transform: uppercase;
-    transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
-  }
-
-  .expertise-band__cta:hover,
-  .expertise-band__cta:focus-visible {
-    background: var(--accent);
-    color: var(--on-accent);
-  }
-
-  .expertise-band__host {
-    font-size: var(--fs-meta);
-    letter-spacing: 0.08em;
-    opacity: 0.75;
-    text-transform: none;
-  }
-
-  .expertise-band__cta > svg {
-    margin-left: auto;
-  }
-
   @media (max-width: 47.99rem) {
     .expertise-band__intro {
       grid-template-columns: 1fr;

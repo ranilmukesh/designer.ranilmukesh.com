@@ -1,0 +1,53 @@
+---
+import type { ProjectRecord } from './types'
+import Icon from '@/components/ui/Icon.astro'
+import { text } from '@/data/site'
+import ProjectCover from './ProjectCover.astro'
+
+interface Props {
+  project: ProjectRecord
+  index: number
+  total: number
+  /** Show the inline cover (used on the /work page). */
+  cover?: boolean
+  /** Give the tile the `project-N` anchor id (only where the showcase does not already). */
+  anchor?: boolean
+}
+
+const { project, index, total, cover = false, anchor = true } = Astro.props
+const pad = (value: number) => String(value).padStart(2, '0')
+const href = project.url ?? project.github
+const live = project.isActive !== false
+---
+<li
+  id={anchor
+? `project-${index + 1}`
+: undefined}
+  class:list={['work-tile', cover && 'work-tile--cover']}
+  tabindex="-1"
+>
+  {cover && (
+    <button class="work-tile__cover" type="button" data-case-open data-case-index={index} aria-haspopup="dialog" aria-controls="projectCase" aria-label={text('common.caseLabel').replace('{name}', project.name)}>
+      <ProjectCover project={project} index={index} total={total} />
+    </button>
+  )}
+  <div class="work-tile__meta mono">
+    <span>{pad(index + 1)}</span>
+    <span class:list={['work-tile__status', !live && 'is-archived']}>{live
+? text('common.live')
+: text('common.archive')}</span>
+  </div>
+  <h3 class="work-tile__name">{project.name}</h3>
+  <p class="work-tile__description">{project.description}</p>
+  <div class="work-tile__actions">
+    <button class="work-tile__case mono" type="button" data-case-open data-case-index={index} aria-haspopup="dialog" aria-controls="projectCase" aria-label={text('common.caseLabel').replace('{name}', project.name)}>
+      <Icon name="mdi:file-document-outline" width={14} height={14} aria-hidden="true" />
+      {text('common.caseFile')}
+    </button>
+    {href && (
+      <a class="work-tile__link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} (opens in a new tab)`}>
+        <Icon name="mdi:arrow-top-right" width={16} height={16} aria-hidden="true" />
+      </a>
+    )}
+  </div>
+</li>

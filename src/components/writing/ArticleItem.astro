@@ -1,0 +1,24 @@
+---
+import type { cv } from '@/data/cv'
+import { text } from '@/data/site'
+import { formatMonthYear } from '@/utils/date'
+
+interface Props {
+  article: (typeof cv.articles)[number]
+  index: number
+}
+
+const { article, index } = Astro.props
+const pad = (value: number) => String(value).padStart(2, '0')
+---
+<li class="article" data-scroll>
+  <a class="article__link" href={article.url} target="_blank" rel="noopener noreferrer" data-cursor={text('writing.read')}>
+    <span class="article__index mono" aria-hidden="true">{pad(index + 1)}</span>
+    <time class="article__date mono" datetime={article.date}>{formatMonthYear(article.date)}</time>
+    <span class="article__text">
+      <span class="article__title display">{article.title}</span>
+      {article.description && <span class="article__description">{article.description}</span>}
+    </span>
+    <span class="article__arrow" aria-hidden="true">↗</span>
+  </a>
+</li>

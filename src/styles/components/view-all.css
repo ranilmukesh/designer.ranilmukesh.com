@@ -1,0 +1,90 @@
+@layer components {
+  /* The "All …" bar: a link to a full-list page, or the summary of an in-place disclosure. */
+  .view-all__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1.2rem;
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(1rem, 2.2vw, 1.6rem) clamp(1rem, 2.4vw, 2rem);
+    background: var(--fg);
+    color: var(--bg);
+    font-size: clamp(1.6rem, 4vw, 3.6rem);
+    line-height: 1;
+    text-transform: uppercase;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
+  }
+
+  .view-all__bar::-webkit-details-marker { display: none; }
+
+  .view-all__bar:hover,
+  .view-all__bar:focus-visible {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  .view-all__note {
+    font-size: var(--fs-meta);
+    letter-spacing: 0.08em;
+    opacity: 0.75;
+    text-transform: none;
+  }
+
+  .view-all__bar > .view-all__icon {
+    margin-left: auto;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .view-all[open] > .view-all__bar > .view-all__icon {
+    transform: rotate(180deg);
+  }
+
+  .view-all__body {
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  /* Section pages: a slim strip that leads back to the index. */
+  .page-crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    padding-block: 0.8rem;
+    border-block: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: var(--fs-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .page-crumbs a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    color: var(--fg);
+  }
+
+  .page-crumbs a:hover { color: var(--accent-text); }
+
+  .page-crumbs__siblings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+  }
+
+  .page-crumbs__siblings a[aria-current="page"] {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+
+  @media print {
+    .view-all__bar, .page-crumbs { display: none; }
+    .view-all__body { display: block; }
+  }
+}

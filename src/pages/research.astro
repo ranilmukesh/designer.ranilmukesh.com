@@ -1,0 +1,12 @@
+---
+import Footer from '@/components/Footer.astro'
+import Research from '@/components/sections/Research.astro'
+import { cv } from '@/data/cv'
+import Layout from '@/layouts/Layout.astro'
+
+const { name } = cv.basics
+---
+<Layout title={`Research · ${name}`} path="/research/" description="All research papers by Ranil Mukesh MJ, each with its PDF.">
+  <Research variant="page" />
+  <Footer />
+</Layout>
