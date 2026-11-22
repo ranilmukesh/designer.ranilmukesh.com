@@ -63,7 +63,7 @@
     "email": "ranilmukesh117@gmail.com",
     "url": "https://ranilmukesh.com",
     "summary": "I architect the infrastructure for autonomous enterprise intelligence. Operating at the convergence of advanced machine learning research and high-availability software engineering, I move AI from stochastic, chat-based novelties to deterministic, stateful agentic systems that execute complex business logic at scale.",
-    "theme": "red",
+    "theme": "clay",
     "profiles": [
       {
         "network": "GitHub",
@@ -345,10 +345,10 @@
       "description": "An autonomous AI Data Scientist agent. Multi-tenant, secure, enterprise-grade. It navigates enterprise databases of more than 3,000 tables (SAP S/4HANA, Salesforce Health Cloud, Oracle) without hallucination.",
       "isActive": true,
       "highlights": [
-        "Multi-agent reasoning with governance-graph tool use",
+        "Multi-agent reasoning that plans over a governance graph before it touches data",
         "Text-to-SQL and insight extraction directly over ERP data",
-        "Multi-tenant, cryptographically secured auth and data isolation",
-        "PII redaction and MCP connectors"
+        "Multi-tenant, cryptographically isolated auth, with PII redaction before anything reaches a model",
+        "MCP connectors, with every query, tool call and answer kept in an audit trail"
       ],
       "url": "https://phobosq.com/sirus",
       "links": [
@@ -360,6 +360,43 @@
       "featured": true
     },
     {
+      "name": "Enterprise Business Context Library",
+      "description": "A governed, vendor-neutral semantic layer that brokers business context to AI agents. It runs entirely inside an enterprise Microsoft 365 / Azure tenant, and every answer can be traced back to the record it came from.",
+      "isActive": true,
+      "highlights": [
+        "“Three records, not one”: where data lives, what it means and who may see it are kept as separate layers",
+        "MCP context brokering behind policy-driven access, with sensitive and personal fields classified on the way in",
+        "Lineage and audit layer: each retrieved fact, prompt and answer is logged and traceable",
+        "Adversarial verification of AI answers (SAFE and chain-of-verification style) before they reach a user"
+      ],
+      "featured": true
+    },
+    {
+      "name": "Returned-Asset Decision Workbench",
+      "description": "An agent-first decision-intelligence platform that decides what happens to every returned asset (redeploy, resell, re-lease, harvest parts or a responsible exit) and keeps the full evidence trail behind each call.",
+      "isActive": true,
+      "highlights": [
+        "Agents weigh condition, demand forecast and value, inside policy guardrails",
+        "Decision ledger: evidence, forecast, approver and outcome recorded for every asset",
+        "Human-in-the-loop approvals with role-based views; customer details masked by default",
+        "Closes the loop by measuring the value actually realised: executive command centre and operations views"
+      ],
+      "featured": true
+    },
+    {
+      "name": "Paati OS",
+      "description": "A voice-first, multi-agent tutor for rural students. It talks in Tamil and English, builds its own interactive screens as it teaches, and covers SQL, logic and career planning through a grandmother persona, Thirukkural ethics and Tenali Raman puzzles.",
+      "isActive": true,
+      "highlights": [
+        "Second prize, 24-hour IEEE hackathon in Chennai (₹1 lakh pool)",
+        "Agent team on Agno AgentOS with NVIDIA Nemotron; Sarvam AI speech in and out",
+        "Generative UI: lessons and mini-games are rendered as live interface, not text",
+        "Explainable placement prediction (XGBoost and SHAP) over a career knowledge graph"
+      ],
+      "github": "https://github.com/ranilmukesh/Rural-GenerativeUi-TTS-Agent",
+      "featured": true
+    },
+    {
       "name": "Yazhi",
       "description": "A foundational AI platform designed for 90 million Tamil speakers, bringing RL-based reasoning (chain-of-thought, parallel tree search) to farmers and everyday users.",
       "isActive": true,
@@ -368,8 +405,7 @@
         "Novel tokenization for Tamil",
         "RL-based reasoning: CoT and Parallel Tree"
       ],
-      "url": "https://phobosq.com/yazhi",
-      "featured": true
+      "url": "https://phobosq.com/yazhi"
     },
     {
       "name": "Integration Recovery Agent",
@@ -381,41 +417,6 @@
         "Records W3C PROV-O causal lineage and exports RDF audit trails",
         "Escalates unsafe or ambiguous cases to a human",
         "Agno + AgentOS team with hard delegation and anti-looping bounds; graph-native decision context, PostgreSQL, NVIDIA-hosted LLM, Docker"
-      ],
-      "featured": true
-    },
-    {
-      "name": "Paati-Kural League",
-      "description": "A voice-first AI tutor with a grandmother persona that teaches rural students SQL, logic and career planning in Tamil and English, through Thirukkural ethics, Tenali Raman puzzles and generative UI mini-games, with an explainable placement predictor.",
-      "isActive": true,
-      "highlights": [
-        "Second prize, 24-hour IEEE hackathon in Chennai (₹1 lakh pool)",
-        "Agno AgentOS with NVIDIA Nemotron; Sarvam AI speech in and out",
-        "XGBoost and SHAP placement prediction with a NetworkX career graph"
-      ],
-      "github": "https://github.com/ranilmukesh/Rural-GenerativeUi-TTS-Agent",
-      "featured": true
-    },
-    {
-      "name": "Returned-Asset Decision Workbench",
-      "description": "An agent-first decision-intelligence product demo that decides what happens to every returned asset: redeploy, resell, re-lease, harvest parts or a responsible exit.",
-      "isActive": true,
-      "highlights": [
-        "Every decision is backed by evidence, a forecast and human approval",
-        "Measures the value actually realised after each decision",
-        "Role-based views: executive command centre and operations",
-        "Responsive across desktop, tablet and phone"
-      ]
-    },
-    {
-      "name": "Enterprise Business Context Library",
-      "description": "A reference architecture for a governed, vendor-neutral semantic layer and context-brokering infrastructure that runs entirely inside an enterprise Microsoft 365 / Azure tenant.",
-      "isActive": true,
-      "highlights": [
-        "“Three records, not one”: storage kept separate from business meaning",
-        "MCP-based context brokering for AI agents",
-        "Adversarial due-diligence and verification framework for AI answers (SAFE and chain-of-verification style)",
-        "Governed and vendor-neutral by design"
       ]
     },
     {

@@ -10,6 +10,18 @@ interface CoverProject {
 
 const escape = (value: string) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
+/** Shortens to `max` characters at a word boundary, so the cover never shows half a word. */
+export function clipAtWord(value: string, max: number): string {
+  if (value.length <= max)
+    return value
+  const cut = value.slice(0, max - 1)
+  const space = cut.lastIndexOf(' ')
+  const words = space > max / 2
+    ? cut.slice(0, space)
+    : cut
+  return `${words.replace(/[^\p{L}\p{N}"'\u201D)]+$/u, '')}\u2026`
+}
+
 function wrap(name: string, max = 13): string[] {
   const lines: string[] = []
   for (const word of name.toUpperCase().split(/\s+/)) {
@@ -52,9 +64,7 @@ export function coverMarkup(project: CoverProject, index: number, total: number)
   const numberSize = Math.min(380, Math.floor((numberBase - 120) / 0.74))
   const number = String(index + 1).padStart(2, '0')
   const note = (project.highlights?.[0] ?? '').toUpperCase()
-  const clipped = note.length > 34
-    ? `${note.slice(0, 33).trimEnd()}…`
-    : note
+  const clipped = clipAtWord(note, 34)
   return `<rect class="c-bg" width="1600" height="1000"/>${compositions[index % compositions.length]!()}${
     numberSize >= 140
       ? `<text class="c-none c-fg-line c-display" x="60" y="${numberBase}" font-size="${numberSize}" stroke-width="3">${number}</text>`
