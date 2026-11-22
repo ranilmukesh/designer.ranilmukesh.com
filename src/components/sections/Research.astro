@@ -1,0 +1,82 @@
+---
+import Section from '@/components/Section.astro'
+import Icon from '@/components/ui/Icon.astro'
+import { cv } from '@/data/cv'
+import { text } from '@/data/site'
+import { formatMonthYear } from '@/utils/date'
+
+const papers = cv.publications
+const pad = (value: number) => String(value).padStart(2, '0')
+const venues = papers.filter(paper => paper.publisher).length
+const meta = [
+  `${pad(papers.length)} ${text('research.papers')}`,
+  venues > 0 && `${pad(venues)} ${text('research.venues')}`,
+].filter(Boolean).join(' · ')
+const archive = cv.archive?.research
+---
+<Section id="research" meta={meta}>
+  <div class="research">
+    <header class="research__head" data-scroll>
+      <div>
+        <p class="kicker">{text('research.intro')}</p>
+        <p class="research__statement">{text('research.statementFirst')}<br /><em>{text('research.statementLast')}</em></p>
+      </div>
+      <p class="research__note mono">{text('research.note')}</p>
+    </header>
+
+    <ol class="papers">
+      {papers.map((paper, index) => (
+        <li class="paper" data-scroll>
+          <span class="paper__index display" aria-hidden="true">{pad(index + 1)}</span>
+          <div class="paper__body">
+            <div class="paper__meta">
+              {paper.publisher && <span class="stamp stamp--solid">{paper.publisher}</span>}
+              {!paper.publisher && !paper.releaseDate && <span class="stamp">{text('research.preprint')}</span>}
+              {paper.releaseDate && <span class="mono paper__date">{formatMonthYear(paper.releaseDate)}</span>}
+            </div>
+            <h3 class="paper__title">
+              {paper.url
+                ? <a class="link-line" href={paper.url} target="_blank" rel="noopener noreferrer">{paper.name}</a>
+                : paper.name}
+            </h3>
+            {paper.summary && <p class="paper__abstract">{paper.summary}</p>}
+            {paper.tags && paper.tags.length > 0 && (
+              <ul class="paper__tags" aria-label={text('common.highlights')}>
+                {paper.tags.map(tag => <li class="mono">{tag}</li>)}
+              </ul>
+            )}
+            {(paper.url || paper.github) && (
+              <div class="paper__links">
+                {paper.url && (
+                  <a class="btn btn--solid" href={paper.url} target="_blank" rel="noopener noreferrer" aria-label={text('research.pdfLabel').replace('{name}', paper.name)} data-cursor={text('cursor.open')}>
+                    <Icon name="mdi:file-document-outline" width={15} height={15} aria-hidden="true" />
+                    {text('research.pdf')}
+                  </a>
+                )}
+                {paper.github && (
+                  <a class="arrow-link" href={paper.github} target="_blank" rel="noopener noreferrer" aria-label={text('common.sourceLabel').replace('{name}', paper.name)}>
+                    <Icon name="mdi:github" width={16} height={16} aria-hidden="true" />
+                    <span>{text('research.code')}</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    {archive && (
+      <a class="research__all display" href={archive} target="_blank" rel="noopener noreferrer" data-scroll>
+        <span>{text('research.all')}</span>
+        <span class="mono research__all-host">{archive.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    )}
+  </div>
+</Section>
+
+<style>
+  @import "../../styles/sections/research.css";
+</style>

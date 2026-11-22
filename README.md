@@ -1,0 +1,37 @@
+# design.ranilmukesh.com
+
+The "design edition" portfolio of Ranil Mukesh MJ, Co-Founder & CTO of PhobosQ and k22.ai: a single-page, constructivist poster site with GSAP motion, light/dark modes and palette switching.
+
+It lists projects, research papers and articles, and links out to [ranilmukesh.com](https://ranilmukesh.com) for the full papers (PDF) and articles. Nothing is hosted here except the page itself.
+
+## Run it
+
+Requires Node 24+ and pnpm 10 (no global install needed; `npx` fetches it).
+
+```bash
+npx -y pnpm@10 install
+npx -y pnpm@10 run dev      # http://localhost:4321
+npx -y pnpm@10 run build    # config check + astro check + static build to dist/
+npx -y pnpm@10 run preview  # serve dist/
+```
+
+## Edit content
+
+Almost everything lives in `cv.json` (validated by `src/data/schema.ts`; editor schema in `cv.schema.json`, regenerate with `pnpm schema` after changing the runtime schema).
+
+- `basics`, `hero`, `sections`, `ui`: profile, hero copy, section order and interface wording
+- `work`: experience
+- `projects`: case files (covers are generated, see below)
+- `publications`: research papers, linking to PDFs on ranilmukesh.com
+- `articles`: writing, linking to ranilmukesh.com/blog
+- `skills`: expertise board
+
+Project covers, the favicon, touch icons and the social card are typographic SVG/PNG files generated from `cv.json` by `pnpm art` (`scripts/generate-art.mjs`). Re-run it after adding or renaming a project.
+
+## Deploy
+
+`netlify.toml` builds with `pnpm build` and publishes `dist/`. The site is configured for the root of `https://design.ranilmukesh.com` (`site.url` / `site.base` in `cv.json`).
+
+## Credits
+
+Built on [astro-constructivist](https://github.com/MiraHikari/astro-constructivist) by MiraHikari, used under the MIT license (see `LICENSE` and `LICENSES/THIRD_PARTY.md`). Site content © Ranil Mukesh MJ.

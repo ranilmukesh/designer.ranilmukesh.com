@@ -1,0 +1,1181 @@
+{
+  "$schema": "./cv.schema.json",
+  "site": {
+    "url": "https://design.ranilmukesh.com",
+    "base": "/",
+    "lang": "en",
+    "locale": "en_US",
+    "timeZone": "UTC",
+    "favicon": "/favicon.svg",
+    "appleTouchIcon": "/apple-touch-icon.png",
+    "seo": {
+      "title": "Ranil Mukesh MJ · Co-Founder & CTO, PhobosQ & k22.ai",
+      "description": "Ranil Mukesh MJ, Co-Founder & CTO of PhobosQ and k22.ai. Architecting the infrastructure for autonomous enterprise intelligence: deterministic, stateful agentic systems, research and writing.",
+      "keywords": [
+        "Ranil Mukesh MJ",
+        "Agentic AI",
+        "Autonomous agents",
+        "Enterprise AI",
+        "Model Context Protocol",
+        "MLOps",
+        "PhobosQ",
+        "k22.ai"
+      ],
+      "image": "/og.png",
+      "imageAlt": "Ranil Mukesh MJ: Co-Founder & CTO, PhobosQ & k22.ai, set in red and black poster type.",
+      "twitterHandle": "@ranilmukesh",
+      "noIndex": false
+    },
+    "features": {
+      "smoothScroll": true,
+      "scrollMotion": true,
+      "projectExhibition": true,
+      "cursor": true,
+      "blueprint": true,
+      "commandPalette": true,
+      "posterStudio": true,
+      "print": true,
+      "themeSwitch": true,
+      "marquee": true,
+      "sectionTransitions": true
+    },
+    "footer": {
+      "copyrightStart": 2026,
+      "showAttribution": false
+    },
+    "loader": {
+      "enabled": true,
+      "minimumDuration": 1400,
+      "maxWait": 6000,
+      "label": "Ranil Mukesh MJ",
+      "colors": [
+        "#f03a17",
+        "#121110",
+        "#f2eadb",
+        "#f03a17",
+        "#121110"
+      ]
+    }
+  },
+  "basics": {
+    "name": "Ranil Mukesh MJ",
+    "label": "Co-Founder & CTO, PhobosQ & k22.ai",
+    "email": "ranilmukesh117@gmail.com",
+    "url": "https://ranilmukesh.com",
+    "summary": "I architect the infrastructure for autonomous enterprise intelligence. Operating at the convergence of advanced machine learning research and high-availability software engineering, I move AI from stochastic, chat-based novelties to deterministic, stateful agentic systems that execute complex business logic at scale.",
+    "theme": "red",
+    "profiles": [
+      {
+        "network": "GitHub",
+        "icon": "mdi:github",
+        "username": "ranilmukesh",
+        "url": "https://github.com/ranilmukesh"
+      },
+      {
+        "network": "LinkedIn",
+        "icon": "mdi:linkedin",
+        "username": "ranilmukesh",
+        "url": "https://linkedin.com/in/ranilmukesh"
+      },
+      {
+        "network": "X",
+        "icon": "simple-icons:x",
+        "username": "ranilmukesh",
+        "url": "https://x.com/ranilmukesh"
+      },
+      {
+        "network": "LeetCode",
+        "icon": "simple-icons:leetcode",
+        "username": "ranilmukesh",
+        "url": "https://leetcode.com/u/ranilmukesh/"
+      }
+    ],
+    "about": {
+      "personalInfo": [
+        {
+          "label": "Role",
+          "value": "Co-Founder & CTO"
+        },
+        {
+          "label": "Companies",
+          "value": "PhobosQ & k22.ai"
+        },
+        {
+          "label": "Focus",
+          "value": "Agentic systems"
+        },
+        {
+          "label": "Research",
+          "value": "11 papers & pre-prints"
+        }
+      ],
+      "traits": [
+        {
+          "text": "Production-grade systems over fragile prototypes"
+        },
+        {
+          "text": "Rigorous testing, multi-tenancy and fault tolerance over mere capability"
+        },
+        {
+          "text": "Deterministic, stateful agents over stochastic chat"
+        },
+        {
+          "text": "Execution, not just analysis"
+        }
+      ],
+      "highlights": [
+        {
+          "text": "Co-Founder & CTO of PhobosQ and k22.ai"
+        },
+        {
+          "text": "SIRUS: an autonomous AI Data Scientist across 3,000+ enterprise tables"
+        },
+        {
+          "text": "Yazhi: a foundational AI platform for 90 million Tamil speakers"
+        },
+        {
+          "text": "11 papers and pre-prints, from agent security to clinical AI"
+        },
+        {
+          "text": "Active contributor to the Agno agent framework"
+        }
+      ],
+      "quote": {
+        "text": "The future of enterprise is not just about data analysis; it is about autonomous execution.",
+        "values": [
+          {
+            "label": "Deterministic"
+          },
+          {
+            "label": "Stateful"
+          },
+          {
+            "label": "Governed"
+          },
+          {
+            "label": "Shipped"
+          }
+        ]
+      }
+    }
+  },
+  "hero": {
+    "nameLines": [
+      "Ranil",
+      "Mukesh MJ"
+    ],
+    "role": "Co-Founder & CTO / PhobosQ & k22.ai",
+    "description": "Architecting the infrastructure for autonomous enterprise intelligence.",
+    "location": "Agentic systems / ML research",
+    "availability": "Open to conversations on agentic architecture",
+    "cta": {
+      "label": "See the work",
+      "href": "#projects"
+    },
+    "metrics": [
+      {
+        "value": "16",
+        "label": "Selected projects"
+      },
+      {
+        "value": "11",
+        "label": "Papers & pre-prints"
+      },
+      {
+        "value": "06",
+        "label": "Articles"
+      },
+      {
+        "value": "02",
+        "label": "Companies"
+      }
+    ],
+    "note": "Deterministic. Stateful. Agentic.",
+    "scrollLabel": "Scroll to unfold",
+    "typography": {
+      "mixed": true,
+      "shuffle": true,
+      "seed": 2026
+    },
+    "globe": {
+      "enabled": false,
+      "autoRotate": true,
+      "speed": 0.12,
+      "dotSize": 2.2,
+      "latitude": 0,
+      "longitude": 0,
+      "label": ""
+    },
+    "marquee": [
+      "Agentic systems",
+      "Deterministic AI",
+      "Model Context Protocol",
+      "Enterprise MLOps",
+      "Research",
+      "PhobosQ",
+      "k22.ai"
+    ]
+  },
+  "sections": [
+    {
+      "id": "top",
+      "label": "Portfolio",
+      "title": "Portfolio",
+      "kicker": "",
+      "tagline": "Introduction",
+      "tone": "paper",
+      "nav": false,
+      "enabled": true
+    },
+    {
+      "id": "about",
+      "label": "About",
+      "title": "About",
+      "kicker": "The architect behind the systems",
+      "tagline": "Manifesto",
+      "tone": "paper",
+      "nav": true,
+      "enabled": true
+    },
+    {
+      "id": "experience",
+      "label": "Experience",
+      "title": "Experience",
+      "kicker": "Founding, building, shipping",
+      "tagline": "Service record",
+      "tone": "ink",
+      "nav": true,
+      "enabled": true
+    },
+    {
+      "id": "projects",
+      "label": "Work",
+      "title": "Selected work",
+      "kicker": "Products, platforms, open source",
+      "tagline": "Case files",
+      "tone": "paper",
+      "nav": true,
+      "enabled": true
+    },
+    {
+      "id": "research",
+      "label": "Research",
+      "title": "Research",
+      "kicker": "Papers & pre-prints",
+      "tagline": "Archive",
+      "tone": "paper-2",
+      "nav": true,
+      "enabled": true
+    },
+    {
+      "id": "writing",
+      "label": "Writing",
+      "title": "Writing",
+      "kicker": "Articles on ranilmukesh.com",
+      "tagline": "Dispatches",
+      "tone": "ink",
+      "nav": true,
+      "enabled": true
+    },
+    {
+      "id": "skills",
+      "label": "Expertise",
+      "title": "Expertise",
+      "kicker": "Technical stack & core capabilities",
+      "tagline": "Materials",
+      "tone": "paper",
+      "nav": false,
+      "enabled": true
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "title": "Contact",
+      "kicker": "Start a conversation",
+      "tagline": "Transmission",
+      "tone": "accent",
+      "nav": true,
+      "enabled": true
+    }
+  ],
+  "work": [
+    {
+      "name": "PhobosQ",
+      "position": "Co-Founder & CTO",
+      "url": "https://phobosq.com",
+      "summary": "Architecting SIRUS, an autonomous AI Data Scientist that navigates enterprise databases without hallucination, and leading Yazhi, a foundational AI platform for Tamil speakers.",
+      "responsibilities": [
+        "Engineered deterministic agentic middleware with Ed25519 cryptographic signatures and governed execution enclaves to prevent logic hijacking and keep tenant data isolated",
+        "Designed multi-agent reasoning with governance-graph tool use for SQL generation and insight extraction across SAP, Salesforce and Oracle",
+        "Led Yazhi, a foundational AI platform with novel tokenization and RL-based reasoning",
+        "Building voice agents with deep CRM integration (Salesforce, SAP) and an AI-native technical interviewing platform for 100k+ concurrent candidates (WebRTC, SSE, distributed caching)"
+      ],
+      "skills": {
+        "Rust": "simple-icons:rust",
+        "Agno / AgentOS": "mdi:robot-outline",
+        "Qdrant": "mdi:vector-polyline",
+        "vLLM": "mdi:lightning-bolt-outline",
+        "Redis": "simple-icons:redis",
+        "RLAIF": "mdi:brain"
+      }
+    },
+    {
+      "name": "k22.ai",
+      "position": "Co-Founder & CTO",
+      "url": "https://k22.ai",
+      "summary": "Architected an autonomous agentic MLOps platform that runs the full AI lifecycle from natural language.",
+      "responsibilities": [
+        "Built a scalable, multi-tenant backend on Agent-to-Agent (A2A) orchestration and the Model Context Protocol (MCP)",
+        "Agents generate and provision Infrastructure-as-Code on AWS (SageMaker, Glue, Terraform)",
+        "Integrated AgentOps for real-time agent telemetry"
+      ],
+      "skills": {
+        "MCP": "mdi:connection",
+        "A2A": "mdi:lan-connect",
+        "AWS": "mdi:aws",
+        "Terraform": "simple-icons:terraform",
+        "Kubernetes": "simple-icons:kubernetes",
+        "AgentOps": "mdi:chart-timeline-variant"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "SIRUS",
+      "description": "An autonomous AI Data Scientist agent. Multi-tenant, secure, enterprise-grade. It navigates enterprise databases of more than 3,000 tables (SAP S/4HANA, Salesforce Health Cloud, Oracle) without hallucination.",
+      "isActive": true,
+      "highlights": [
+        "Multi-agent reasoning with governance-graph tool use",
+        "Text-to-SQL and insight extraction directly over ERP data",
+        "Multi-tenant, cryptographically secured auth and data isolation",
+        "PII redaction and MCP connectors"
+      ],
+      "url": "https://phobosq.com/sirus",
+      "links": [
+        {
+          "label": "Features",
+          "url": "https://phobosq.com/sirus-features"
+        }
+      ],
+      "image": {
+        "url": "/work/sirus.svg",
+        "dark": "/work/sirus-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Yazhi",
+      "description": "A foundational AI platform designed for 90 million Tamil speakers, bringing RL-based reasoning (chain-of-thought, parallel tree search) to farmers and everyday users.",
+      "isActive": true,
+      "highlights": [
+        "Cultural and linguistic adaptation at the model level",
+        "Novel tokenization for Tamil",
+        "RL-based reasoning: CoT and Parallel Tree"
+      ],
+      "url": "https://phobosq.com/yazhi",
+      "image": {
+        "url": "/work/yazhi.svg",
+        "dark": "/work/yazhi-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Integration Recovery Agent",
+      "description": "An autonomous multi-agent swarm that recovers failed B2B payment integrations. It intercepts malformed partner payloads, diagnoses schema drift and repairs them before an order is lost.",
+      "isActive": true,
+      "highlights": [
+        "Repairs payloads in an in-memory sandbox, then evaluates deterministic Rete-engine policy rules",
+        "Processes orders idempotently and reuses approved repair rules zero-shot",
+        "Records W3C PROV-O causal lineage and exports RDF audit trails",
+        "Escalates unsafe or ambiguous cases to a human",
+        "Agno + AgentOS team with hard delegation and anti-looping bounds; graph-native decision context, PostgreSQL, NVIDIA-hosted LLM, Docker"
+      ],
+      "image": {
+        "url": "/work/integration-recovery-agent.svg",
+        "dark": "/work/integration-recovery-agent-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Returned-Asset Decision Workbench",
+      "description": "An agent-first decision-intelligence product demo that decides what happens to every returned asset: redeploy, resell, re-lease, harvest parts or a responsible exit.",
+      "isActive": true,
+      "highlights": [
+        "Every decision is backed by evidence, a forecast and human approval",
+        "Measures the value actually realised after each decision",
+        "Role-based views: executive command centre and operations",
+        "Responsive across desktop, tablet and phone"
+      ],
+      "image": {
+        "url": "/work/returned-asset-decision-workbench.svg",
+        "dark": "/work/returned-asset-decision-workbench-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Enterprise Business Context Library",
+      "description": "A reference architecture for a governed, vendor-neutral semantic layer and context-brokering infrastructure that runs entirely inside an enterprise Microsoft 365 / Azure tenant.",
+      "isActive": true,
+      "highlights": [
+        "“Three records, not one”: storage kept separate from business meaning",
+        "MCP-based context brokering for AI agents",
+        "Adversarial due-diligence and verification framework for AI answers (SAFE and chain-of-verification style)",
+        "Governed and vendor-neutral by design"
+      ],
+      "image": {
+        "url": "/work/enterprise-business-context-library.svg",
+        "dark": "/work/enterprise-business-context-library-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Luna",
+      "description": "Enterprise document processing for Indian languages. Extracts entities, tables and insights from complex documents with high accuracy.",
+      "isActive": true,
+      "highlights": [
+        "Document intelligence and OCR for Indian languages",
+        "Entity and table extraction from complex layouts"
+      ],
+      "url": "https://phobosq.com/luna",
+      "image": {
+        "url": "/work/luna.svg",
+        "dark": "/work/luna-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "TOM: Call Analytics",
+      "description": "Turns Tamil and Indic-language calls into actionable insights with 95% accuracy: real-time sentiment analysis, sales-opportunity detection and coaching.",
+      "isActive": true,
+      "highlights": [
+        "Real-time sentiment analysis",
+        "Sales-opportunity detection",
+        "Coaching built into the call record"
+      ],
+      "url": "https://phobosq.com/call-analytics",
+      "image": {
+        "url": "/work/tom-call-analytics.svg",
+        "dark": "/work/tom-call-analytics-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "PhobosQ AutoSEO (QEO)",
+      "description": "An autonomous agent that uses computer-use capabilities to navigate web interfaces, analyse competitive metrics and execute SEO strategies without human intervention.",
+      "isActive": true,
+      "highlights": [
+        "Computer-use agent for competitive analysis",
+        "Automatic content generation"
+      ],
+      "image": {
+        "url": "/work/phobosq-autoseo.svg",
+        "dark": "/work/phobosq-autoseo-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Self-Defending 6G Networks",
+      "description": "An adaptive 6G security framework that generates and deploys AI-driven decoys at the network edge, learning from attacker interactions instead of only detecting them.",
+      "isActive": true,
+      "highlights": [
+        "Conditional GANs for context-aware decoy creation",
+        "PPO reinforcement learning for decoy placement and resource control",
+        "Federated synchronisation across edge nodes"
+      ],
+      "github": "https://github.com/PhobosQ-ai/Self-Defending-6G-Networks",
+      "links": [
+        {
+          "label": "Paper (PDF)",
+          "url": "https://ranilmukesh.com/papers/6g-flatten.pdf"
+        }
+      ],
+      "image": {
+        "url": "/work/self-defending-6g.svg",
+        "dark": "/work/self-defending-6g-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Paati-Kural League",
+      "description": "A voice-first AI tutor with a grandmother persona that teaches rural students SQL, logic and career planning in Tamil and English, through Thirukkural ethics, Tenali Raman puzzles and generative UI mini-games, with an explainable placement predictor.",
+      "isActive": true,
+      "highlights": [
+        "Second prize, 24-hour IEEE hackathon in Chennai (₹1 lakh pool)",
+        "Agno AgentOS with NVIDIA Nemotron; Sarvam AI speech in and out",
+        "XGBoost and SHAP placement prediction with a NetworkX career graph"
+      ],
+      "github": "https://github.com/ranilmukesh/Rural-GenerativeUi-TTS-Agent",
+      "image": {
+        "url": "/work/paati-kural-league.svg",
+        "dark": "/work/paati-kural-league-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Smart Home Agentic RAG",
+      "description": "An agentic RAG system that answers natural-language questions about a smart home with grounded, verified responses, built, tested and demoed in five hours as a proof of concept for a consultation.",
+      "isActive": true,
+      "highlights": [
+        "Neo4j graph traversal plus LanceDB hybrid search",
+        "Bounded think, act, analyse loop on NVIDIA NIM",
+        "Guardrails against prompt injection and destructive Cypher; OpenTelemetry tracing"
+      ],
+      "github": "https://github.com/ranilmukesh/smarthome-agent",
+      "image": {
+        "url": "/work/smarthome-agent.svg",
+        "dark": "/work/smarthome-agent-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Rust Web Search Agent",
+      "description": "A hobby build to practise Rust end to end: an async CLI agent on the Rig framework that searches the web through DuckDuckGo and writes grounded answers with NVIDIA-hosted models.",
+      "isActive": true,
+      "highlights": [
+        "Rig, Tokio and reqwest with rustls",
+        "Fully containerised with Docker Compose",
+        "Structured tracing for every model and network call"
+      ],
+      "github": "https://github.com/ranilmukesh/rust-web-search-agent-nvidia-docker",
+      "image": {
+        "url": "/work/rust-web-search-agent.svg",
+        "dark": "/work/rust-web-search-agent-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "NeoAI: Enterprise Text2SQL",
+      "description": "An enterprise-grade, multi-agent Text-to-SQL system for complex databases using a hybrid Monte Carlo Tree Search approach, built with five LLM agents for high accuracy.",
+      "isActive": true,
+      "highlights": [
+        "Hybrid MCTS search over SQL candidates",
+        "Five cooperating LLM agents",
+        "Vite, React and shadcn/ui front end"
+      ],
+      "github": "https://github.com/ranilmukesh/neoai--enterprise-grade-text2sql-vite-react-shadcn",
+      "image": {
+        "url": "/work/neoai-text2sql.svg",
+        "dark": "/work/neoai-text2sql-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "RAGFlow-AI",
+      "description": "An enterprise Retrieval-Augmented Generation system with multi-LLM support, hybrid vector search, computer vision and optimised document processing.",
+      "isActive": true,
+      "highlights": [
+        "YOLOv8 lets agents see and correlate visual data inside documents",
+        "Hybrid vector search on Qdrant",
+        "Multi-LLM support"
+      ],
+      "github": "https://github.com/ranilmukesh/RAGFlow-AI",
+      "image": {
+        "url": "/work/ragflow-ai.svg",
+        "dark": "/work/ragflow-ai-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Distributed RAG Engine",
+      "description": "A production-grade RAG system with NVIDIA NIM and LlamaIndex for enterprise-scale document processing.",
+      "isActive": true,
+      "highlights": [
+        "Multi-LLM support",
+        "Parallel processing",
+        "Security built in"
+      ],
+      "github": "https://github.com/ranilmukesh/distributed-rag-engine",
+      "image": {
+        "url": "/work/distributed-rag-engine.svg",
+        "dark": "/work/distributed-rag-engine-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "AutoML Studio",
+      "description": "An AutoML studio built on TensorFlow.js and Next.js. Upload a dataset, choose a target variable and build models, with Transformers.js and WebGPU for acceleration.",
+      "isActive": true,
+      "highlights": [
+        "Runs on-premise",
+        "Transformers.js with WebGPU acceleration"
+      ],
+      "github": "https://github.com/ranilmukesh/TensorFlow.js-AutoML-Studio-with-Next-JS",
+      "image": {
+        "url": "/work/automl-studio.svg",
+        "dark": "/work/automl-studio-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Groq API Playground",
+      "description": "An OpenAI-style playground for Groq models: bring your own API key, test custom prompts and install on-premise.",
+      "isActive": false,
+      "highlights": [
+        "Next.js, Radix UI and shadcn/ui",
+        "Supports on-premise installation"
+      ],
+      "github": "https://github.com/ranilmukesh/Groq-API-PLayground-for-multiple-industries",
+      "image": {
+        "url": "/work/groq-api-playground.svg",
+        "dark": "/work/groq-api-playground-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "PlacementPredictor+",
+      "description": "My final-year project: a proof of concept that predicts campus placement chances, explains each result and routes students towards suitable roles.",
+      "isActive": false,
+      "highlights": [
+        "XGBoost prediction with SHAP explanations",
+        "NetworkX knowledge graph for skill-gap routing",
+        "FastAPI backend with an AI career assistant"
+      ],
+      "github": "https://github.com/ranilmukesh/placementpredictor",
+      "image": {
+        "url": "/work/placementpredictor.svg",
+        "dark": "/work/placementpredictor-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Startup Idea Validator",
+      "description": "A Streamlit Cloud application that takes a startup idea and returns guidance on next steps, funding strategy and more.",
+      "isActive": false,
+      "highlights": [
+        "Streamlit and Python",
+        "Generative AI advisory flow"
+      ],
+      "github": "https://github.com/ranilmukesh/Machine-Learning-projects/tree/main/startup%20chat",
+      "image": {
+        "url": "/work/startup-idea-validator.svg",
+        "dark": "/work/startup-idea-validator-dark.svg",
+        "position": "container"
+      }
+    },
+    {
+      "name": "Machine Learning Projects",
+      "description": "A collection of early machine learning projects: a disease prediction system, credit card fraud detection and real-time face detection.",
+      "isActive": false,
+      "highlights": [
+        "Python, scikit-learn, TensorFlow, OpenCV"
+      ],
+      "github": "https://github.com/ranilmukesh/Machine-Learning-projects/tree/main",
+      "image": {
+        "url": "/work/ml-projects.svg",
+        "dark": "/work/ml-projects-dark.svg",
+        "position": "container"
+      }
+    }
+  ],
+  "publications": [
+    {
+      "name": "HQ-Mamba-PAC: A Generalizable Hybrid Quantum State-Space Framework for High-Fidelity Object Classification",
+      "releaseDate": "2026-05-02",
+      "url": "https://ranilmukesh.com/papers/hq%20mamba%20pac-flatten.pdf",
+      "summary": "HQ-Mamba-PAC is a hybrid quantum-classical vision framework that combines semantic distillation, quantum encoding, messenger-linked quantum processing, selective state-space fusion, and PAC-Bayesian regularization in one pipeline. The goal is to keep the long-range modeling benefits of advanced vision systems while improving trainability, robustness under domain shift, and theoretical control over generalization, including deployment for non-invasive chick gender classification.",
+      "tags": [
+        "Quantum Machine Learning",
+        "Computer Vision",
+        "State-Space Models",
+        "PAC-Bayes",
+        "Object Classification"
+      ]
+    },
+    {
+      "name": "Mixture-of-Depths Meets Thresholded Differential Attention: Omni-PAIFT, a Universal Sink-Free Multimodal Foundation Transformer with Gradient-Orthogonal Fusion and Active Uncertainty Routing",
+      "releaseDate": "2026-05-02",
+      "url": "https://ranilmukesh.com/papers/omni_paift-flatten.pdf",
+      "summary": "Omni-PAIFT is a unified multimodal foundation architecture designed to reduce information dilution, attention sinks, gradient interference, and expensive uncertainty estimation in large-scale systems. It combines threshold-gated mixture-of-depths differential attention, cross-modal fusion, single-pass uncertainty routing, evolutionary multi-task optimization, and speculative sparse execution to improve long-context efficiency and downstream task performance with only modest additional compute.",
+      "tags": [
+        "Multimodal AI",
+        "Foundation Models",
+        "Long Context",
+        "Uncertainty Routing",
+        "Mixture of Depths"
+      ]
+    },
+    {
+      "name": "Rhythm in the Air: Real-Time Continuous Gesture-to-Music Generation via Liquid State Dynamics and Flow-Matching",
+      "releaseDate": "2026-05-01",
+      "url": "https://ranilmukesh.com/papers/lnn%20music%20gen%20moe-flatten.pdf",
+      "summary": "This paper presents a real-time gesture-to-music generation system that turns continuous human motion into expressive audio rather than mapping gestures to fixed pre-recorded outputs. It uses Liquid Time-Constant networks for low-latency motion understanding, an audio-visual mixture-of-experts router for latent control, and flow-matching or diffusion-based generation to synthesize music and vocals on the fly while aligning the system with human aesthetic intent through GDPO.",
+      "tags": [
+        "Gesture Control",
+        "Music Generation",
+        "Liquid Neural Networks",
+        "Flow Matching",
+        "Mixture of Experts"
+      ]
+    },
+    {
+      "name": "Self-Defending 6G Networks Through AI-Driven Adaptive Decoy Generation at the Edge",
+      "releaseDate": "2026-04-19",
+      "url": "https://ranilmukesh.com/papers/6g-flatten.pdf",
+      "summary": "This paper proposes an adaptive security framework for 6G networks that moves beyond passive intrusion detection by generating and deploying realistic AI-driven decoys at the network edge. The system combines conditional GANs for context-aware decoy creation, PPO-based reinforcement learning for dynamic decoy placement and resource control, adversarial feedback from attacker interactions for continuous refinement, and federated synchronization across edge nodes to preserve privacy while improving collective defense.",
+      "tags": [
+        "6G Security",
+        "Edge AI",
+        "Conditional GAN",
+        "Reinforcement Learning",
+        "Federated Learning"
+      ],
+      "github": "https://github.com/PhobosQ-ai/Self-Defending-6G-Networks"
+    },
+    {
+      "name": "CareerCompass: A Privacy-Preserving Agentic Framework for Causal Employability Prediction and Generative Curriculum Synthesis",
+      "publisher": "IEEE ICCET 2026",
+      "releaseDate": "2026-04-01",
+      "url": "https://ranilmukesh.com/papers/CareerCompassIEEE-flatten.pdf",
+      "summary": "CareerCompass is a privacy-first employability prediction framework that allows multiple institutions to train a shared model without centralizing sensitive student records. It combines federated learning for decentralized prediction, propensity-score-based causal inference to test whether suggested interventions truly improve employability, and GraphRAG over a knowledge graph to generate personalized learning paths tailored to each student's current skills and career goals.",
+      "tags": [
+        "Federated Learning",
+        "Causal Inference",
+        "GraphRAG",
+        "Multi-Agent",
+        "Privacy"
+      ]
+    },
+    {
+      "name": "Signed and Sealed: Protocol-Level Isolation with Cryptographic Integrity (PLICI) for Secure LLM Agents",
+      "url": "https://ranilmukesh.com/papers/PLICI-flatten.pdf",
+      "summary": "PLICI is a deterministic security middleware for LLM agents that shifts defense away from fragile prompt-level heuristics toward verifiable protocol enforcement. It uses session-scoped Ed25519 signatures to verify data origin, schema-locked enclaves to isolate tool payloads before the agent reads them, and an NLI-based semantic filter to catch logic hijacking, sharply reducing attack success while keeping latency low enough for real-time agent systems.",
+      "tags": [
+        "LLM Security",
+        "Prompt Injection",
+        "Cryptography",
+        "MCP",
+        "Agentic AI"
+      ]
+    },
+    {
+      "name": "BrepHCC: Lightweight Cross-Modal B-Rep Point Fusion with Hierarchical Contrastive Clustering for Non-Categorical 3D Jewelry CAD Organization",
+      "url": "https://ranilmukesh.com/papers/new3d-flatten.pdf",
+      "summary": "BrepHCC is an unsupervised 3D CAD clustering framework built for large jewelry design repositories, where visual similarity alone is not enough to capture style, topology, and manufacturing structure. It fuses native Rhino B-Rep topology with dense point-cloud features through a lightweight top-2 mixture-of-experts router and trains with a hierarchical contrastive clustering loss that preserves geometric detail, curvature patterns, and cross-model similarity.",
+      "tags": [
+        "3D CAD",
+        "B-Rep",
+        "Point Clouds",
+        "Clustering",
+        "Jewelry Design"
+      ]
+    },
+    {
+      "name": "Cerebro-TabM: Contextual Evidential Retrieval & Ensembling with Bounded Rademacher Optimization for Clinical Stroke Prediction",
+      "url": "https://ranilmukesh.com/papers/cerebro_tabm-flatten.pdf",
+      "summary": "Cerebro-TabM is a clinical stroke prediction architecture built for highly imbalanced and partially missing healthcare data, where rare positive cases and missing-not-at-random features can mislead standard tabular models. It introduces a missingness-aware tokenizer, an evidential BatchEnsemble that outputs uncertainty-aware Dirichlet evidence, and a PAC-Bayes-grounded focal loss that aims to improve calibration, fairness, and edge-deployment readiness for safety-critical decision support.",
+      "tags": [
+        "Clinical AI",
+        "Stroke Prediction",
+        "Tabular Learning",
+        "Uncertainty Estimation",
+        "PAC-Bayes"
+      ]
+    },
+    {
+      "name": "Cross-Attention with Squeeze-and-Excitation Layers for Tabular Data",
+      "url": "https://ranilmukesh.com/papers/Cross-Attention%20with%20Squeeze-and-Excitation%20Layers%20for%20Tabular%20Data-flatten.pdf",
+      "summary": "This architecture is designed for tabular learning with mixed numerical and categorical features, using a shared embedding space followed by cross-attention to model interactions between feature types. It further applies squeeze-and-excitation recalibration, lightweight feedforward blocks, and efficiency techniques such as blockwise attention, sparse masking, pruning, and quantization to improve performance without making the model too expensive to train or deploy.",
+      "tags": [
+        "Tabular Deep Learning",
+        "Cross-Attention",
+        "Squeeze-and-Excitation",
+        "Feature Interaction",
+        "Efficient AI"
+      ]
+    },
+    {
+      "name": "Generative Causal-Curriculum: A Privacy-Preserving Federated Framework for Synthetic Hard-Example Mining in Brain Tumor Segmentation",
+      "url": "https://ranilmukesh.com/papers/Brain%20Tumor3d%202026-flatten.pdf",
+      "summary": "This work proposes a federated brain tumor segmentation framework that turns model failure patterns into anonymous causal error vectors instead of sharing raw medical images. A server-side latent diffusion model then generates synthetic hard examples that specifically target those blind spots, while MO-DGPO and TreeGRPO make the optimization more stable and reduce generation overhead for practical federated training.",
+      "tags": [
+        "Federated Learning",
+        "Brain Tumor Segmentation",
+        "Diffusion Models",
+        "Causal Inference",
+        "Medical Imaging"
+      ]
+    },
+    {
+      "name": "HelixVantage: Context-Aware Medical Orchestration via Semantic IoT-Edge Fusion and Dynamic Neural Routing",
+      "url": "https://ranilmukesh.com/papers/helixNew-flatten.pdf",
+      "summary": "HelixVantage is a hierarchical medical AI orchestration system that grounds language-based reasoning in live physiological signals rather than relying only on static text retrieval. It converts edge sensor streams into HL7 FHIR observations, combines those signals with user queries through a context-aware router, and applies a safety-oriented regularizer so the final response stays closer to clinical guidelines while reducing hallucinations.",
+      "tags": [
+        "IoMT",
+        "Healthcare AI",
+        "HL7 FHIR",
+        "Dynamic Routing",
+        "Medical Safety"
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "title": "SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers",
+      "description": "Authoritative Technical Breakdown & Systems Analysis of SMELT: Scaling Laws for Compute-Matched MoE Looped Transformers (arXiv:2609.01343).",
+      "date": "2026-09-06",
+      "url": "https://ranilmukesh.com/blog/smelt/"
+    },
+    {
+      "title": "The AI Inference Bottleneck: explaining DFlash, PFlash, and the Lucebox Hub",
+      "description": "A comprehensive deep-dive into state-of-the-art AI inference acceleration technologies. We explore the 5 Ws of PFlash and DFlash, their synergy, and an end-to-end teardown of the Lucebox Hub repository.",
+      "date": "2026-05-02",
+      "url": "https://ranilmukesh.com/blog/ai-inference-bottleneck/"
+    },
+    {
+      "title": "Building a web search ai agent using rust",
+      "description": "Why the future of enterprise automation lies in stateful, reliable agents, not stochastic chat interfaces.",
+      "date": "2026-05-01",
+      "url": "https://ranilmukesh.com/blog/rust-agent/"
+    },
+    {
+      "title": "How to Build a RUST web search ai agent using coding agents",
+      "description": "Why the future of enterprise automation lies in stateful, reliable agents, not stochastic chat interfaces.",
+      "date": "2026-05-01",
+      "url": "https://ranilmukesh.com/blog/rust-agent-coding-agents-mind/"
+    },
+    {
+      "title": "The Manual Data Science Delusion: Why Autonomous Agents Render Intuition Obsolete",
+      "description": "Exposing the hard truths of autonomous systems from the iteration volume gap to the feature engineering ceiling that make manual workflows look like statistical waste.",
+      "date": "2026-02-18",
+      "url": "https://ranilmukesh.com/blog/manual-data-science-delusion/"
+    },
+    {
+      "title": "The Shift to Deterministic AI Agents",
+      "description": "Why the future of enterprise automation lies in stateful, reliable agents, not stochastic chat interfaces.",
+      "date": "2026-01-15",
+      "url": "https://ranilmukesh.com/blog/deterministic-ai/"
+    }
+  ],
+  "archive": {
+    "research": "https://ranilmukesh.com/research/",
+    "writing": "https://ranilmukesh.com/blog/"
+  },
+  "skills": [
+    {
+      "name": "Agent design & orchestration",
+      "icon": "mdi:robot-outline",
+      "category": "Agentic systems",
+      "keywords": [
+        "agents",
+        "coordination"
+      ]
+    },
+    {
+      "name": "Multi-agent decision frameworks",
+      "icon": "mdi:lan-connect",
+      "category": "Agentic systems",
+      "keywords": [
+        "multi-agent",
+        "communication"
+      ]
+    },
+    {
+      "name": "Tool use & autonomous action",
+      "icon": "mdi:tools",
+      "category": "Agentic systems",
+      "keywords": [
+        "tools",
+        "execution"
+      ]
+    },
+    {
+      "name": "Human-in-the-loop systems",
+      "icon": "mdi:account-check-outline",
+      "category": "Agentic systems",
+      "keywords": [
+        "HITL"
+      ]
+    },
+    {
+      "name": "Model Context Protocol (MCP)",
+      "icon": "mdi:connection",
+      "category": "Agentic systems",
+      "keywords": [
+        "MCP",
+        "context"
+      ]
+    },
+    {
+      "name": "Multi-tenant high-availability APIs",
+      "icon": "mdi:server-network",
+      "category": "Agentic systems",
+      "keywords": [
+        "architecture",
+        "multi-tenant"
+      ]
+    },
+    {
+      "name": "Domain fine-tuning",
+      "icon": "mdi:tune-variant",
+      "category": "LLM engineering",
+      "keywords": [
+        "fine-tuning",
+        "production"
+      ]
+    },
+    {
+      "name": "RLAIF",
+      "icon": "mdi:brain",
+      "category": "LLM engineering",
+      "keywords": [
+        "alignment",
+        "safety",
+        "reinforcement learning"
+      ]
+    },
+    {
+      "name": "Adversarial red-teaming",
+      "icon": "mdi:shield-bug-outline",
+      "category": "LLM engineering",
+      "keywords": [
+        "robustness",
+        "security"
+      ]
+    },
+    {
+      "name": "Multimodal LLMs",
+      "icon": "mdi:image-text",
+      "category": "LLM engineering",
+      "keywords": [
+        "text",
+        "voice",
+        "image"
+      ]
+    },
+    {
+      "name": "JEPA-based prompt enhancement",
+      "icon": "mdi:text-box-edit-outline",
+      "category": "LLM engineering",
+      "keywords": [
+        "JEPA",
+        "prompting"
+      ]
+    },
+    {
+      "name": "Localisation & cultural adaptation",
+      "icon": "mdi:translate",
+      "category": "LLM engineering",
+      "keywords": [
+        "Yazhi",
+        "Tamil"
+      ]
+    },
+    {
+      "name": "ML pipelines",
+      "icon": "mdi:pipe",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "pipelines",
+        "data engineering"
+      ]
+    },
+    {
+      "name": "Bias detection & fairness",
+      "icon": "mdi:scale-balance",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "fairness",
+        "evaluation"
+      ]
+    },
+    {
+      "name": "Deployment & monitoring",
+      "icon": "mdi:monitor-dashboard",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "MLOps",
+        "monitoring"
+      ]
+    },
+    {
+      "name": "Kubernetes",
+      "icon": "simple-icons:kubernetes",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "containers",
+        "orchestration"
+      ]
+    },
+    {
+      "name": "Docker",
+      "icon": "simple-icons:docker",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "containers"
+      ]
+    },
+    {
+      "name": "Intel Tiber Cloud",
+      "icon": "mdi:cloud-outline",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "cloud"
+      ]
+    },
+    {
+      "name": "Oracle Cloud Ampere",
+      "icon": "mdi:cloud-outline",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "cloud",
+        "ARM"
+      ]
+    },
+    {
+      "name": "Neon DB",
+      "icon": "mdi:database-outline",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "Postgres",
+        "database"
+      ]
+    },
+    {
+      "name": "Qdrant",
+      "icon": "mdi:vector-polyline",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "vector search"
+      ]
+    },
+    {
+      "name": "Redis",
+      "icon": "simple-icons:redis",
+      "category": "MLOps & infrastructure",
+      "keywords": [
+        "cache"
+      ]
+    },
+    {
+      "name": "Agno / AgentOS / AG-UI",
+      "icon": "mdi:robot-industrial-outline",
+      "category": "Orchestration",
+      "keywords": [
+        "Agno",
+        "AgentOS",
+        "AG-UI"
+      ]
+    },
+    {
+      "name": "GraphRAG",
+      "icon": "mdi:graph-outline",
+      "category": "Orchestration",
+      "keywords": [
+        "RAG",
+        "knowledge graph"
+      ]
+    },
+    {
+      "name": "LMCache",
+      "icon": "mdi:memory",
+      "category": "Orchestration",
+      "keywords": [
+        "KV cache",
+        "inference"
+      ]
+    },
+    {
+      "name": "LangGraph",
+      "icon": "mdi:source-branch",
+      "category": "Orchestration",
+      "keywords": [
+        "graphs",
+        "agents"
+      ]
+    },
+    {
+      "name": "AgentOps",
+      "icon": "mdi:chart-timeline-variant",
+      "category": "Orchestration",
+      "keywords": [
+        "telemetry"
+      ]
+    },
+    {
+      "name": "LangSmith",
+      "icon": "mdi:magnify-scan",
+      "category": "Orchestration",
+      "keywords": [
+        "tracing",
+        "evaluation"
+      ]
+    },
+    {
+      "name": "Automated model building",
+      "icon": "mdi:auto-fix",
+      "category": "Data science automation",
+      "keywords": [
+        "AutoML"
+      ]
+    },
+    {
+      "name": "Text2SQL interfaces",
+      "icon": "mdi:database-search-outline",
+      "category": "Data science automation",
+      "keywords": [
+        "natural language",
+        "SQL"
+      ]
+    },
+    {
+      "name": "Automated business intelligence",
+      "icon": "mdi:chart-box-outline",
+      "category": "Data science automation",
+      "keywords": [
+        "insights",
+        "BI"
+      ]
+    },
+    {
+      "name": "Data structures",
+      "icon": "mdi:file-tree-outline",
+      "category": "Foundations"
+    },
+    {
+      "name": "System design",
+      "icon": "mdi:sitemap-outline",
+      "category": "Foundations"
+    },
+    {
+      "name": "Computer architecture",
+      "icon": "mdi:chip",
+      "category": "Foundations"
+    },
+    {
+      "name": "Distributed systems",
+      "icon": "mdi:server-network-outline",
+      "category": "Foundations"
+    }
+  ],
+  "ui": {
+    "site.tagline": "Deterministic, stateful agentic systems. Set in poster type.",
+    "footer.rights": "All rights reserved",
+    "footer.grid": "Grid: twelve columns, one signal.",
+    "about.intro": "Operating principle",
+    "about.manifestoFirst": "Stochastic in.",
+    "about.manifestoMiddle": "Deterministic",
+    "about.manifestoLast": "out.",
+    "about.note": "Production-grade over fragile. Execution over analysis.",
+    "about.method": "Philosophy",
+    "experience.intro": "Two companies, one thesis",
+    "experience.statement": "Agents that execute business logic, not agents that chat.",
+    "common.live": "Active",
+    "common.archive": "Archive",
+    "common.archived": "Archived",
+    "skills.note": "Filter the board to inspect a discipline.",
+    "contact.intro": "Agentic architecture, MCP, RLAIF",
+    "contact.statementFirst": "Let's build",
+    "contact.statementMiddle": "something",
+    "contact.statementLast": "deterministic.",
+    "contact.note": "Always open to discussing high-level agentic architecture, the Model Context Protocol (MCP), or bringing RLAIF into enterprise systems.",
+    "contact.seal": "Open to conversation",
+    "contact.status": "Open to conversation",
+    "contact.statusNote": "Co-Founder & CTO at PhobosQ and k22.ai.",
+    "print.tagline": "Deterministic. Stateful. Agentic.",
+    "poster.eyebrow": "Print edition",
+    "story.experience": "Principles become companies.",
+    "story.projects": "Companies ship systems.",
+    "story.research": "Systems raise questions worth publishing.",
+    "story.writing": "Some questions need the long form."
+  }
+}

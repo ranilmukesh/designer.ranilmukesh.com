@@ -1,0 +1,50 @@
+---
+import Section from '@/components/Section.astro'
+import { cv } from '@/data/cv'
+import { text } from '@/data/site'
+import { formatMonthYear } from '@/utils/date'
+
+const articles = [...cv.articles].sort((a, b) => b.date.localeCompare(a.date))
+const pad = (value: number) => String(value).padStart(2, '0')
+const meta = `${pad(articles.length)} ${text('writing.articles')}`
+const archive = cv.archive?.writing
+---
+<Section id="writing" meta={meta}>
+  <div class="writing">
+    <header class="writing__head" data-scroll>
+      <div>
+        <p class="kicker">{text('writing.intro')}</p>
+        <p class="writing__statement">{text('writing.statementFirst')}<br /><em>{text('writing.statementLast')}</em></p>
+      </div>
+      <p class="writing__note mono">{text('writing.note')}</p>
+    </header>
+
+    <ol class="articles">
+      {articles.map((article, index) => (
+        <li class="article" data-scroll>
+          <a class="article__link" href={article.url} target="_blank" rel="noopener noreferrer" data-cursor={text('writing.read')}>
+            <span class="article__index mono" aria-hidden="true">{pad(index + 1)}</span>
+            <time class="article__date mono" datetime={article.date}>{formatMonthYear(article.date)}</time>
+            <span class="article__text">
+              <span class="article__title display">{article.title}</span>
+              {article.description && <span class="article__description">{article.description}</span>}
+            </span>
+            <span class="article__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+
+    {archive && (
+      <a class="writing__all display" href={archive} target="_blank" rel="noopener noreferrer" data-scroll>
+        <span>{text('writing.all')}</span>
+        <span class="mono writing__all-host">{archive.replace(/^https?:\/\//, '').replace(/\/$/, '')}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    )}
+  </div>
+</Section>
+
+<style>
+  @import "../../styles/sections/writing.css";
+</style>
